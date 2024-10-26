@@ -1,8 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './RecipeCollections.css'
-import { Link } from 'react-router-dom'
+import {useParams} from 'react-router-dom'
+import customFetch from '../../Utils/customFetch';
+import { useNavigate } from 'react-router-dom';
 
 const RecipeCollections = (props) => {
+
+  const {recipeId} = useParams()
+  const navigate = useNavigate();
+
+
+
+  const removeFood = async (foodId) => {
+    try {
+      const response = await customFetch.post(`recipes/removeFood/${recipeId}`, {
+        foodId: foodId,
+        
+      });
+      navigate(0)
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
+  };
+
+
+
 
 
   return (
@@ -38,7 +62,7 @@ const RecipeCollections = (props) => {
         </div>
         <div className="recipecollection-options">
             <button>PORTION</button>
-            <button>REMOVE</button>
+            <button onClick={() => removeFood(props.id)}>REMOVE</button>
         </div>
     </div>
 </div>

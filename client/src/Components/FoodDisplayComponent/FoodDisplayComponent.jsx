@@ -60,6 +60,7 @@ const FoodDisplayComponent = () => {
             foodId: foodId
           });
           toast.success('Ingredient Added')
+          toggleList()
         } catch (error) {
           toast.error(error?.response?.data?.msg)
           return error;

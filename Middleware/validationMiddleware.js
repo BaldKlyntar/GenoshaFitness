@@ -23,10 +23,12 @@ const withValidationErrors = (validateValues) =>{
 
 export const validateRoutineInput = withValidationErrors([
     body('name').notEmpty().withMessage('Name of the routine is required')
+    .isLength({max:30}).withMessage('Routine name must be less than 30 characters long'),
 ]);
 
 export const validateRecipeInput = withValidationErrors([
     body('name').notEmpty().withMessage('Name of the recipe is required')
+    .isLength({max:30}).withMessage('Recipe name must be less than 30 characters long'),
 ]);
 
 export const validateExerciseInput = withValidationErrors([

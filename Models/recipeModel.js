@@ -5,9 +5,20 @@ const recipeSchema = new mongoose.Schema(
         Id:String,
         name:String,
         ingredients:[{
-            type:mongoose.Schema.Types.ObjectId,
-            ref: 'Food',
-            quantity: Number
+
+            id: String,
+            name: String,
+            portionSize: Number,
+            calories:Number,
+            protein: Number,
+            carbs: Number,
+            fats: Number,
+            basePortion: Number,
+            baseCalories: Number,
+            baseProtein: Number,
+            baseFats: Number,
+            baseCarbs: Number
+            
         }],
         description:String,
         createdBy: String,

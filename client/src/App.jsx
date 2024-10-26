@@ -33,8 +33,8 @@ import { action as addRoutineAction } from './Components/RoutineListComponent/Ro
 import { loader as allRoutineLoader } from './Components/WorkoutDisplayComponent/WorkoutDisplayComponent'
 import { loader as getRoutineWorkout } from './Components/RoutineDisplayComponent/RoutineDisplayComponent'
 import { action as addRecipeAction } from './Components/RecipeListComponent/RecipeListComponent'
-import { loader as getRecipeIngredient } from './Components/RecipeDisplayComponent/RecipeDisplayComponent'
 import { loader as allRecipeLoader } from './Components/FoodDisplayComponent/FoodDisplayComponent'
+import { loader as checkUserLoader } from './Components/LoginComponent/LoginComponent'
 
 
 
@@ -61,7 +61,8 @@ const router = createBrowserRouter([
       {
         path:"login",
         element:<LoginPage/>,
-        action: loginAction
+        action: loginAction,
+        loader: checkUserLoader
 
       },
       {
@@ -91,7 +92,6 @@ const router = createBrowserRouter([
           {
             path: "recipe/:recipeId",
             element: <RecipeDisplayPage/>,
-            loader: getRecipeIngredient
 
           },
           {

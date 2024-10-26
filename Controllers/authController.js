@@ -36,6 +36,8 @@ export const login = async (req, res) => {
 
 }
 
+
+
 export const logout = async (req, res) => {
     res.cookie('token', 'logout', {
         httpOnly:true,
@@ -43,4 +45,19 @@ export const logout = async (req, res) => {
     });
 
     res.status(StatusCodes.OK).json({ msg: 'user logged out'})
+}
+
+export const checkLoggedUser = async (req, res) => {
+    
+    const {token} = req.cookies; 
+        
+    if (!token) {
+        return res.json(false);
+    }
+    else{
+        return res.json(true)
+    }
+
+
+
 }

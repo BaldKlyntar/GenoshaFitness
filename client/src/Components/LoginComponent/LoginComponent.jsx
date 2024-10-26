@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './LoginComponent.css'
 import { Link, Form, redirect, useNavigation } from 'react-router-dom'
 import customFetch from '../../Utils/customFetch';
@@ -23,9 +23,32 @@ export const action = async ({request}) => {
 
 }
 
+export const loader = async() => {
+  try {
+
+    const response = await customFetch.get('/auth/checkUser')
+
+    if(response.data == true){
+      toast.success('Welcome Back!')
+      return redirect('/home')
+      
+    }
+    else{
+      return null;
+    }
+
+    
+  } catch (error) {
+    toast.error(error?.response?.data?.msg)
+    return error
+    
+  }
+}
+
 const LoginComponent = () => {
   const navigation = useNavigation()
   const isSubmitting = navigation.state === 'submitting'
+
   return (
         <Form method = 'post' className="login-container">
             <div className="form-header">

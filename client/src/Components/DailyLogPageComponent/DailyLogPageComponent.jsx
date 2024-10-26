@@ -4,7 +4,7 @@ import customFetch from '../../Utils/customFetch';
 import { PiBarbellLight } from 'react-icons/pi';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 export const loader = async () => {
   try {
@@ -63,7 +63,7 @@ const DailyLogPageComponent = () => {
         userId: user._id,
       });
       toast.success('Routine Added');
-
+      toggleListRoutines()
       fetchDailyLog();
     } catch (error) {
       toast.error(error?.response?.data?.msg);
@@ -79,7 +79,42 @@ const DailyLogPageComponent = () => {
       });
       toast.success('Recipe Added');
       fetchDailyLog();
+      toggleListRecipes()
     } catch (error) {
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
+  };
+
+  const removeRecipe = async (recipeId) => {
+    try {
+      const response = await customFetch.post('dailylog/removeMeal', {
+        recipeId: recipeId,
+        userId: user._id,
+        
+      });
+      console.log(response)
+      toast.success('Recipe Removed');
+      fetchDailyLog();
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.response?.data?.msg);
+      return error;
+    }
+  };
+
+  const removeRoutine = async (routineId) => {
+    try {
+      const response = await customFetch.post('dailylog/removeRoutine', {
+        routineId: routineId,
+        userId: user._id,
+        
+      });
+      console.log(response)
+      toast.success('Routine Removed');
+      fetchDailyLog();
+    } catch (error) {
+      console.log(error)
       toast.error(error?.response?.data?.msg);
       return error;
     }
@@ -175,7 +210,6 @@ const DailyLogPageComponent = () => {
   const totalCarbs = dailyLogResponse.recipeLog.reduce((total, item) => total + item.totalCarbs, 0);
   const totalFats = dailyLogResponse.recipeLog.reduce((total, item) => total + item.totalFats, 0);
 
-  console.log(dailyLogResponse)
 
 
   
@@ -207,6 +241,8 @@ const DailyLogPageComponent = () => {
     },
     
   ];
+
+
   
 
   return (
@@ -220,7 +256,10 @@ const DailyLogPageComponent = () => {
                 <div key={index} className="dailylog-list-display-format">
                   <div className="dailylog-list-display-format-text">
                     <h2>{item.name}</h2>
-                    <PiBarbellLight size={50} color="0099ff" />
+                    <div className="dailylog-listbuttonlogo">
+                      <PiBarbellLight size={50} color="0099ff" />
+                      <button onClick={() => removeRecipe(item._id)}>Remove</button>
+                    </div>
                   </div>
                 </div>
               ))
@@ -237,7 +276,10 @@ const DailyLogPageComponent = () => {
                     <div key={index} className="dailylog-list-display-format">
                     <div className="dailylog-list-display-format-text">
                         <h2>{item.name}</h2>
-                        <PiBarbellLight size={50} color="0099ff" />
+                        <div className="dailylog-listbuttonlogo">
+                          <PiBarbellLight size={50} color="0099ff" />
+                          <button onClick={() => removeRoutine(item._id)}>Remove</button>
+                        </div>
                     </div>
                     </div>
                 ))

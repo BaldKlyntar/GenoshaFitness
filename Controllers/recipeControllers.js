@@ -48,7 +48,7 @@ export const addRecipe = async (req, res) => {
         const recipe = await Recipe.create({
             ...req.body,
             Id: uniqueId,
-            createdBy: username
+            createdBy: username,
         });
         user.recipes.push(recipe._id)
         await user.save()
@@ -66,7 +66,7 @@ export const addRecipe = async (req, res) => {
 }
 
 export const getRecipe = async(req,res) => {
-    const recipe = await Recipe.findById(req.params.id)
+    const recipe = await Recipe.findById(req.params.id).populate('ingredients')
     res.status(StatusCodes.OK).json({recipe})
 }
 
@@ -90,11 +90,26 @@ export const appendFood = async (req, res) => {
 
     let recipe = await Recipe.findById(recipeId)
     let food = await Food.findById(foodId);
+    recipe.ingredients.push({
+        id: food._id,
+        name:food.name,
+        portionSize:food.portionSize,
+        calories: food.calories,
+        protein: food.protein,
+        carbs: food.carbs,
+        fats: food.fats,
+        basePortion: food.portionSize,
+        baseCalories: food.calories,
+        baseProtein: food.protein,
+        baseCarbs: food.carbs,
+        baseFats: food.fats
+
+    })
     recipe.totalCalories += food.calories
     recipe.totalProtein += food.protein
     recipe.totalFats += food.fats
     recipe.totalCarbs += food.carbs
-    recipe.ingredients.push(food._id)
+    
 
     await recipe.save();
 
@@ -104,42 +119,65 @@ export const appendFood = async (req, res) => {
    
 }
 
-export const getRecipeFoods = async (req, res) => {
-    try {
-
-        const recipe = await Recipe.findById(req.params.id).populate('ingredients')
-        res.status(StatusCodes.OK).json({ingredients: recipe.ingredients})
-        
-    } catch (error) {
-
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'Error retrieving exercices', error });
-        
-    }
-}
 
 export const removeFood = async (req, res) => {
-    const recipeId = req.params.recipeId;
-    const foodId = req.params.foodId;
+    const {recipeId} = req.params
+    const {foodId} = req.body
 
-    let recipe = await Recipe.findById(recipeId)
 
-    const foodIndex = recipe.food.findIndex(e => e.food.toString() == foodId);
-    recipe.food.splice(foodIndex, 1)
+
+    const recipe = await Recipe.findById(recipeId)
+
+    const foodInRecipe = recipe.ingredients.find(item => item._id.toString() === foodId);
+    recipe.totalCalories -= foodInRecipe.calories
+    recipe.totalProtein -= foodInRecipe.protein
+    recipe.totalFats -= foodInRecipe.fats
+    recipe.totalCarbs -= foodInRecipe.carbs
+    
+    recipe.ingredients.remove(foodInRecipe)
+
     await recipe.save()
 
-    res.status(StatusCodes.OK).json({msg: 'Ingredient removed succesfully', recipe})
+    res.status(StatusCodes.OK).json({msg: 'Ingredient removed succesfully'})
 }
 
 export const updateRecipeFood = async (req,res) => {
-    const recipeId = req.params.recipeId;
-    const foodId = req.params.foodId;
-    const {quantity} = req.body
-    let recipe = await Recipe.findById(recipeId)
 
-    const food = recipe.food.find(e => e.food.toString() === foodId)
+    const { portion } = req.body
+    const { foodId } = req.body
+    const { recipeId } = req.params
+    
+    const recipe = await Recipe.findById(recipeId)
+    const foodInRecipe = recipe.ingredients.find(item => item._id.toString() === foodId);
 
-    food.quantity = quantity || food.quantity
+
+
+
+    const Calories = Math.round((portion / foodInRecipe.basePortion) * (foodInRecipe.baseCalories))
+    const Protein = Math.round((portion / foodInRecipe.basePortion) * (foodInRecipe.baseProtein))
+    const Fat = Math.round((portion / foodInRecipe.basePortion) * (foodInRecipe.baseFats))
+    const Carbs = Math.round((portion / foodInRecipe.basePortion) * (foodInRecipe.baseCarbs))
+
+    recipe.totalCalories -= foodInRecipe.calories
+    recipe.totalProtein -= foodInRecipe.protein
+    recipe.totalCarbs -= foodInRecipe.carbs
+    recipe.totalFats -= foodInRecipe.fats
+
+
+    foodInRecipe.portionSize = portion
+    foodInRecipe.calories = Calories
+    foodInRecipe.protein = Protein
+    foodInRecipe.fats = Fat
+    foodInRecipe.carbs = Carbs
+
+    recipe.totalCalories += Calories
+    recipe.totalProtein += Protein
+    recipe.totalCarbs += Carbs
+    recipe.totalFats += Fat
+
+
     await recipe.save()
 
-    res.status(StatusCodes.OK).json({ msg: 'Ingredient updated succesfully', recipe})
+    res.status(StatusCodes.OK).json({msg: 'Ingredient updated succesfully'})
+
 }
