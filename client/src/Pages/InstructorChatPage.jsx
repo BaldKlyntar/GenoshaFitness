@@ -1,8 +1,11 @@
 import React from 'react'
+import VirtualInstructorComponent from '../Components/VirtualInstructorComponent/VirtualInstructorComponent'
 
 const InstructorChatPage = () => {
   return (
-    <div>InstructorChatPage</div>
+    <>
+      <VirtualInstructorComponent/>
+    </>
   )
 }
 

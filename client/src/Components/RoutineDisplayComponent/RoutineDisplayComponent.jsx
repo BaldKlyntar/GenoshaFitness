@@ -8,16 +8,6 @@ import { toast } from 'react-toastify'
 import { PiBarbellLight } from 'react-icons/pi';
 
 
-export const loader = async ({ params }) => {
-  try {
-    const { data } = await customFetch.get(`/routines/routine-workouts/${params.routineId}`);
-    return data;
-  }catch (error) {
-    console.log(error)
-
-  }
-}
-
 const RoutineDisplayComponent = () => {
 
   

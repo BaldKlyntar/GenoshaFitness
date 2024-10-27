@@ -1,0 +1,91 @@
+.chat-container {
+  height: 550px;
+  width: 1000px;
+  margin: auto;
+  margin-left: 450px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.response-container {
+  width: fit-content;
+  margin: auto;
+  margin-left: 450px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.response-container input {
+  width: 1000px;
+  height: 50px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+  font-size: 18px;
+}
+
+.chat-icon {
+  margin: auto;
+  width: 1000px;
+  margin-left: 450px;
+  height: fit-content;
+  justify-content: center;
+}
+
+.send-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.virtual-instructor-container {
+  width: fit-content;
+}
+
+.messages {
+  margin-top: 20px;
+  gap: 20px;
+  display: grid;
+  width: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-message {
+  background-color: #0099ff;
+  width: fit-content;
+  padding-right: 20px;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  padding-left: 10px;
+  text-justify: center;
+  height: fit-content;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.assistant-message {
+  background-color: rgb(161, 161, 161);
+  width: fit-content;
+  padding-right: 20px;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  padding-left: 10px;
+  text-justify: center;
+  height: fit-content;
+  padding-bottom: 10px;
+  padding-right: 10px;
+
+  margin-bottom: 20px;
+}

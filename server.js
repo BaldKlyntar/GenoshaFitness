@@ -36,6 +36,7 @@ import exerciseRouter from './Routes/exerciseRouter.js'
 import userRouter from './Routes/userRouter.js'
 import authRouter from './Routes/authRouter.js'
 import dailyLogRouter from './Routes/dailyLogRouter.js'
+import virtualInstructorRouter from './Routes/virtualInstructorRouter.js'
 
 
 // middleware
@@ -63,6 +64,7 @@ app.use('/api/v1/food', foodRouter);
 app.use('/api/v1/users', authenticateUser,userRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/dailylog', dailyLogRouter)
+app.use('/api/v1/virtualInstructor', virtualInstructorRouter)
 
 // NOT FOUND 
 app.use('*', (req, res) => {

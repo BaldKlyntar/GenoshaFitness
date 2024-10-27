@@ -31,7 +31,6 @@ import { action as addFoodAction } from './Components/AddFoodComponent/AddFoodCo
 import { action as addWorkoutAction } from './Components/AddWorkoutComponent/AddWorkoutComponent'
 import { action as addRoutineAction } from './Components/RoutineListComponent/RoutineListComponent'
 import { loader as allRoutineLoader } from './Components/WorkoutDisplayComponent/WorkoutDisplayComponent'
-import { loader as getRoutineWorkout } from './Components/RoutineDisplayComponent/RoutineDisplayComponent'
 import { action as addRecipeAction } from './Components/RecipeListComponent/RecipeListComponent'
 import { loader as allRecipeLoader } from './Components/FoodDisplayComponent/FoodDisplayComponent'
 import { loader as checkUserLoader } from './Components/LoginComponent/LoginComponent'
@@ -102,7 +101,6 @@ const router = createBrowserRouter([
           {
             path:"routine/:routineId",
             element: <RoutineDisplayPage/>,
-            loader: getRoutineWorkout
    
           },
           {
