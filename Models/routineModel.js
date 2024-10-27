@@ -5,10 +5,13 @@ const routineSchema = new mongoose.Schema(
         Id:String,
         name:String,
         exercises:[{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Exercise',
-            sets: Number,
-            reps: Number
+            id:String,
+            image: String,
+            name:String,
+            description:String,
+            sets: {type:Number, default: 4},
+            reps:{ type:Number, default: 12},
+            muscleGroup: String
         }],
         createdBy: String
 

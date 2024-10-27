@@ -26,7 +26,7 @@ router
 router.post('/addExercise', appendExercise);
 router.post('/shareRoutine', sharedRoutine)
 router.get('/routine-workouts/:id', getRoutineExercises);
-router.patch('/:id/exercise/:exerciseId', updateRoutineExercise);
-router.delete('/:id/exercise/:exerciseId', removeExercise);
+router.post('/removeWorkout/:routineId', removeExercise)
+router.post('/updateWorkout/:routineId', updateRoutineExercise)
 
 export default router

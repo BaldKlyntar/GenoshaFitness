@@ -67,7 +67,7 @@ export const addRoutine = async (req, res) => {
 }
 
 export const getRoutine = async(req, res) => {
-    const routine = await Routine.findById(req.params.id)
+    const routine = await Routine.findById(req.params.id).populate('exercises')
     res.status(StatusCodes.OK).json({routine})
 }
 
@@ -92,7 +92,14 @@ export const appendExercise = async(req, res) => {
 
     let routine = await Routine.findById(routineId)
     let exercise = await Exercise.findById(exerciseId);
-    routine.exercises.push(exercise._id)
+    routine.exercises.push({
+        id:exercise._id,
+        name: exercise.name,
+        image:exercise.image,
+        description: exercise.description,
+        muscleGroup:exercise.muscleGroup
+
+    })
     await routine.save();
 
     res.status(StatusCodes.OK).json({msg: 'exercise added succesfully'})
@@ -115,35 +122,37 @@ export const getRoutineExercises = async (req, res) => {
 
 export const removeExercise = async(req, res) => {
 
-    const routineId = req.params.routineId;
-    const exerciseId = req.params.exerciseId;
+    const {routineId} = req.params
+    const {workoutId} = req.body
 
-    let routine = await Routine.findById(routineId)
+    const routine = await Routine.findById(routineId)
 
-    const exerciseIndex = routine.exercises.findIndex(e => e.exercise.toString() === exerciseId);
-    routine.exercises.splice(exerciseIndex, 1)
+    const workoutInRoutine = routine.exercises.find(item => item._id.toString() === workoutId);
+    routine.exercises.remove(workoutInRoutine)
     await routine.save()
 
-    res.status(StatusCodes.OK).json({ msg: 'Exercise removed succesfully', routine})
+    res.status(StatusCodes.OK).json({ msg: 'Exercise removed succesfully'})
 
 
 
 }
 
 export const updateRoutineExercise = async(req, res) => {
-    const routineId = req.params.routineId;
-    const exerciseId = req.params.exerciseId;
-    const { sets, reps } = req.body
 
-    let routine = await Routine.findById(routineId)
+    const {sets} = req.body
+    const {reps} = req.body
+    const { workoutId } = req.body
+    const { routineId } = req.params
 
-    const exercise = routine.exercises.find(e => e.exercise.toString() === exerciseId);
-
-    exercise.sets = sets || exercise.sets
-    exercise.reps = reps || exercise.reps
+    const routine = await Routine.findById(routineId)
+    const workoutInRoutine = routine.exercises.find(item => item._id.toString() === workoutId);
+    
+    workoutInRoutine.sets = sets
+    workoutInRoutine.reps = reps
+    
     await routine.save()
 
-    res.status(StatusCodes.OK).json({ msg: 'Exercise updated succesfully', routine})
+    res.status(StatusCodes.OK).json({ msg: 'Exercise updated succesfully'})
 
 
 }
