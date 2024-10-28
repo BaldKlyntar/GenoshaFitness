@@ -4,3 +4,10 @@
   grid-template-columns: 1fr 1fr;
   row-gap: 50px;
 }
+
+@media (max-width: 1400px) {
+  .workout-list {
+    grid-template-columns: 1fr;
+    margin: 20px 250px;
+  }
+}

@@ -180,3 +180,22 @@
   transform: scale(1.02);
   transition: 0.6s;
 }
+
+@media (max-width: 1400px) {
+  .routine-list {
+    margin: auto;
+  }
+
+  .routine-list-container {
+    margin: auto;
+    background-color: white;
+    width: 800px;
+    height: 550px;
+    margin-left: 325px;
+    overflow-y: auto;
+  }
+
+  .routine-addshare {
+    width: 800px;
+  }
+}

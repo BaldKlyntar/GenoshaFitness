@@ -197,3 +197,45 @@
 .update-window-logo {
   justify-self: center;
 }
+
+@media (max-width: 1400px) {
+  .recipe-food-collection-container {
+    width: 400px;
+    height: 750px;
+    margin-left: 210px;
+  }
+
+  .recipe-stats {
+    width: 575px;
+  }
+
+  .recipe-macro {
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+  }
+
+  .recipe-macro h3 {
+    margin-top: 20px;
+  }
+
+  .recipe-graph {
+    margin-left: 25px;
+  }
+
+  .ingredient-macro {
+    width: 125px;
+  }
+
+  .recipecollection-options button {
+    width: 150px;
+  }
+
+  .recipe-collection {
+    width: 350px;
+  }
+
+  .update-window-display {
+    margin-left: 475px;
+  }
+}

@@ -4,3 +4,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 30px;
 }
+
+@media (max-width: 1400px) {
+  .food-list {
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 195px;
+  }
+}

@@ -4,7 +4,8 @@ import customFetch from '../../Utils/customFetch';
 import { PiBarbellLight } from 'react-icons/pi';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+
 
 export const loader = async () => {
   try {
@@ -292,25 +293,25 @@ const DailyLogPageComponent = () => {
       <div className="dailylog-chart">
         <h3>Daily Macros</h3>
         <div className="dailylog-responsivechart">
-            <BarChart
-            width={950}
-            height={650}
-            data={data}
-            margin={{
-                top: 20,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
-            >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="Today" stackId="a" fill="#0099ff" />
-            <Bar dataKey="Goal" stackId="a" fill="#7e7e7e" />
-            </BarChart>
+          <ResponsiveContainer height={650}>
+                <BarChart
+                data={data}
+                margin={{
+                    top: 20,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                }}
+                >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="Today" stackId="a" fill="#0099ff" />
+                <Bar dataKey="Goal" stackId="a" fill="#7e7e7e" />
+                </BarChart>
+              </ResponsiveContainer>
         </div>
       </div>
       <div className={showRoutines ? 'routines-list-display show-list' : 'routines-list-display'}>

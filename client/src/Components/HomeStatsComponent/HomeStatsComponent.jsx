@@ -439,7 +439,7 @@ const katchData = [
                     </div>
                 </div>
                 <div className="chart-container">
-                    <ResponsiveContainer width={375} height={250}>
+                    <ResponsiveContainer width={365} height={250}>
                         <RadarChart cx="50%" cy="50%" outerRadius="85%" data={katchData}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="subject" />

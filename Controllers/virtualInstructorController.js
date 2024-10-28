@@ -16,7 +16,7 @@ export const getChatResponse = async (req, res) => {
              + 'contestaras cualquier pregunta respecto al tema de ejercicios que trabajan ciertos grupos musculares,' 
              + 'la mejor forma de ejercitarse, alimentos ricos en calorias y macronutrientes asi como recomendar rutinas de ejercicios,' 
               + 'el idioma que hablaras sera el español' 
-              + 'No hace falta que saludes despues del primer mensaje'
+              + 'No hace falta que saludes despues del segundo mensaje'
               + message
 
              }],

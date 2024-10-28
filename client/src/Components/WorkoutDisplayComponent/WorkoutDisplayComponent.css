@@ -142,3 +142,17 @@
   height: 25px;
   cursor: pointer;
 }
+
+@media (max-width: 1400px) {
+  .workout-display-container {
+    margin-left: 240px;
+  }
+
+  .workout-display-top-left img {
+    width: 350px;
+  }
+
+  .routines-list-display {
+    margin-left: 530px;
+  }
+}

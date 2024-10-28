@@ -121,3 +121,14 @@
 .sets-window-logo {
   justify-self: center;
 }
+
+@media (max-width: 1400px) {
+  .routine-workout-collection-container {
+    grid-template-columns: 1fr;
+    margin-left: 345px;
+  }
+
+  .sets-window-display {
+    margin-left: 500px;
+  }
+}

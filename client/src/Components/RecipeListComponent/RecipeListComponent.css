@@ -103,3 +103,10 @@
   transform: scale(1.01);
   transition: 0.6s;
 }
+
+@media (max-width: 1400px) {
+  .recipe-list-container {
+    width: 800px;
+    margin-left: 325px;
+  }
+}

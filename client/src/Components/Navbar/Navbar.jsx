@@ -16,7 +16,6 @@ const Navbar = () => {
                 <div className="logo">
                   <PiBarbellLight size={100} color='#0099ff'/>
                 </div>
-                <h4 className="logo-text">Dashboard</h4>
             </div>
             <div className="btn-container">
               <button>User</button>
