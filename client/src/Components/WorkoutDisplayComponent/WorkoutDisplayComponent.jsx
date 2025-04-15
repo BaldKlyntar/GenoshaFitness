@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom';
 import { CircleLoader } from 'react-spinners'
 import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { PiBarbellLight } from "react-icons/pi";
 import { toast } from 'react-toastify';
+import RelatedVideosComponent  from '../RelatedVideosComponent/RelatedVideosComponent'
+
 
 export const loader = async () => {
   try {
@@ -75,46 +76,43 @@ const WorkoutDisplayComponent = () => {
 
 
   return (
-    <div className="workout-display">
-      <div className="workout-display-container">
-          <div className="workout-display-top">
-              <div className="workout-display-top-left">
-                  <img src={imageUrl} alt="workout image" />
-              </div>
-              <div className="workout-display-top-right">
-                  <h1>{exercise.name}</h1>
-                  <h3>{exercise.muscleGroup}</h3>
-                  <div className="workout-display-corner">
-                      <button onClick={toggleList}>Add to Routine</button>
-                  </div>
-              </div>
-          </div>
-          <hr />
-          <div className="workout-display-bottom">
-              <p>{exercise.description}</p>
-          </div>
-          <hr />
-      </div>
-      <div className={showList?
-      "routines-list-display show-list":"routines-list-display"}>
-          {routine.routines.map((routines, index)=>{
-            return <><div key={index} className="routine-list-display-format">
-              <div className="routine-list-display-format-text">
-                <h1>{routines.name}</h1>
-                <p>{routines.Id}</p>
-                <PiBarbellLight size={50} color='0099ff'/>
-              </div>
-              <div className="routine-display-add-button">
-                <button onClick={() => addToRoutine(routines._id)}>ADD</button>
-              </div>
+
+    <div className="main-background">
+      <div className="main-background-left">
+        <div className="workout-image">
+          <img src={imageUrl} alt="workout-image" />
+        </div>
+        <div className="workout-name">
+          <h1>{exercise.name}</h1>
+          <button>Agregar a una rutina</button>
+        </div>
+        <div className="workout-description">
+          <h3>Descripcion</h3>
+          <p>{exercise.description}</p>
+        </div>
+        <div className="workout-musclegroup">
+            <h3>Grupo muscular</h3>
+            <div className="musclegroup-mini">
+             <p>{exercise.muscleGroup}</p>
             </div>
-            </>
-          })}
-          <div className="routine-display-cancel-button">
-            <button onClick={toggleList}>CANCEL</button>
+        </div>
+        <div className="workout-rank">
+          <h3>Calificacion</h3>
+          <div className="rank-mini">
+            <p>9.5</p>
           </div>
+        </div>
+      </div>
+      <div className="main-backgorund-right">
+        <div className="workout-video-header">
+          <h1>Videos relacionados</h1>
+          <div className="workout-video">
+            <RelatedVideosComponent exerciseName={exercise.name}/>
+          </div>
+        </div>
       </div>
     </div>
+
   )
 }
 

@@ -1,53 +1,40 @@
-.workout-display-container {
-  background-color: white;
+.main-background{
+  width: 1500px;
+  background: white;
   margin: auto;
-  margin-left: 450px;
-  width: 1000px;
-  height: fit-content;
-  border-radius: 10px;
+  margin-left: 225px;
+  height: 775px;
+  border-radius: 25px;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
-  padding-bottom: 25px;
-}
-
-.workout-display-top-left img {
-  width: 400px;
-  border-radius: 10px;
-}
-
-.workout-display-top {
   display: flex;
+
+}
+
+.main-background-left{
+  width: 650px;
+}
+
+.workout-image{
+  margin: auto;
+}
+
+.workout-name{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.workout-display-top-right {
-  margin: auto;
-  font-size: 22px;
+.workout-name h1{
+  margin-left: 15px;
 }
 
-.workout-display-bottom {
-  margin: auto;
-  font-size: 18px;
-  padding-left: 25px;
-  padding-right: 25px;
-  line-height: 1.5;
-  text-align: justify;
-  color: rgb(92, 92, 92);
-}
-
-.workout-display-bottom p {
-  font-weight: bold;
-}
-
-.workout-display-corner {
-  margin-top: 15px;
-  width: fit-content;
-}
-
-.workout-display-corner button {
+.workout-name button{
+  margin-right: 15px;
   cursor: pointer;
   background-color: #0099ff;
   color: white;
-  width: 200px;
+  width: 175px;
   height: 45px;
   border-radius: 10px;
   border-color: transparent;
@@ -55,104 +42,72 @@
   font-size: 16px;
 }
 
-.workout-display-corner:hover {
+.workout-name button:hover{
   transform: scale(1.05);
   transition: 0.6s;
 }
 
-.routines-list-display {
-  position: fixed;
-  inset: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
-  opacity: 0;
-  transition: 0.3s ease-in-out all;
-  visibility: hidden;
-  margin: auto;
-  background-color: white;
-  width: 500px;
-  height: 650px;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow-y: auto;
-  margin-left: 775px;
+.workout-image img{
+  height: 350px;
 }
 
-.show-list {
-  z-index: 99;
-  opacity: 1;
-  visibility: visible;
+.workout-description{
+  margin-left: 15px;
+  margin-bottom: 20px;
 }
 
-.routine-list-display-format {
-  background-color: white;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  margin: auto;
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
+.workout-description h3{
+  margin-bottom: 10px;
 }
 
-.routine-display-cancel-button {
+.workout-description p{
+  color: gray;
+
+}
+
+.workout-musclegroup{
+  margin-left: 15px;
+  margin-bottom: 20px;
+
+}
+
+.musclegroup-mini{
   background-color: #0099ff;
-  margin: auto;
-  width: fit-content;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  width: 55px;
+  height: 20px;
+  width: max-content;
   border-radius: 10px;
-}
-
-.routine-display-cancel-button:hover {
-  transform: scale(1.02);
-  transition: 0.6s;
-}
-
-.routine-display-cancel-button button {
-  background-color: #0099ff;
-  height: 45px;
-  width: 450px;
-  border-color: transparent;
+  margin-top: 10px;
   color: white;
-  border-radius: 10px;
-  cursor: pointer;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.routine-display-add-button {
+.workout-rank{
+  margin-left: 15px;
+}
+
+.rank-mini{
   background-color: #0099ff;
-  height: fit-content;
-  margin-right: 5px;
-  margin-top: 75px;
-  width: fit-content;
-  border-radius: 10px;
-}
-
-.routine-display-add-button:hover {
-  transform: scale(1.02);
-  transition: 0.6s;
-}
-
-.routine-display-add-button button {
-  background-color: #0099ff;
+  width: 55px;
+  height: 20px;
+  width: max-content;
+  border-radius: 20px;
+  margin-top: 10px;
   color: white;
-  border-radius: 10px;
-  border-color: transparent;
-  width: 150px;
-  height: 25px;
-  cursor: pointer;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
 }
 
-@media (max-width: 1400px) {
-  .workout-display-container {
-    margin-left: 240px;
-  }
-
-  .workout-display-top-left img {
-    width: 350px;
-  }
-
-  .routines-list-display {
-    margin-left: 530px;
-  }
+.workout-video-header{
+  margin-left: 15px;
 }
+
+
