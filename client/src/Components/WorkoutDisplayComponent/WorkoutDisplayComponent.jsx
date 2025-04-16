@@ -7,6 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import RelatedVideosComponent  from '../RelatedVideosComponent/RelatedVideosComponent'
+import { PiBarbellLight } from "react-icons/pi";
 
 
 export const loader = async () => {
@@ -84,7 +85,7 @@ const WorkoutDisplayComponent = () => {
         </div>
         <div className="workout-name">
           <h1>{exercise.name}</h1>
-          <button>Agregar a una rutina</button>
+          <button onClick={toggleList}>Agregar a una rutina</button>
         </div>
         <div className="workout-description">
           <h3>Descripcion</h3>
@@ -110,6 +111,25 @@ const WorkoutDisplayComponent = () => {
             <RelatedVideosComponent exerciseName={exercise.name}/>
           </div>
         </div>
+      </div>
+      <div className={showList?
+      "routines-list-display show-list":"routines-list-display"}>
+          {routine.routines.map((routines, index)=>{
+            return <><div key={index} className="routine-list-display-format">
+              <div className="routine-list-display-format-text">
+                <h1>{routines.name}</h1>
+                <p>{routines.Id}</p>
+                <PiBarbellLight size={50} color='0099ff'/>
+              </div>
+              <div className="routine-display-add-button">
+                <button onClick={() => addToRoutine(routines._id)}>ADD</button>
+              </div>
+            </div>
+            </>
+          })}
+          <div className="routine-display-cancel-button">
+            <button onClick={toggleList}>CANCEL</button>
+          </div>
       </div>
     </div>
 

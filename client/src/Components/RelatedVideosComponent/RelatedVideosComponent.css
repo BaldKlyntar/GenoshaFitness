@@ -51,3 +51,87 @@
     margin-right: 10px;
 }
 
+.routines-list-display {
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.3s ease-in-out all;
+    visibility: hidden;
+    margin: auto;
+    background-color: white;
+    width: 500px;
+    height: 650px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow-y: auto;
+    margin-left: 775px;
+  }
+  
+  .show-list {
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .routine-list-display-format {
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .routine-display-cancel-button {
+    background-color: #0099ff;
+    margin: auto;
+    width: fit-content;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+  }
+  
+  .routine-display-cancel-button:hover {
+    transform: scale(1.02);
+    transition: 0.6s;
+  }
+  
+  .routine-display-cancel-button button {
+    background-color: #0099ff;
+    height: 45px;
+    width: 450px;
+    border-color: transparent;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .routine-display-add-button {
+    background-color: #0099ff;
+    height: fit-content;
+    margin-right: 5px;
+    margin-top: 75px;
+    width: fit-content;
+    border-radius: 10px;
+  }
+  
+  .routine-display-add-button:hover {
+    transform: scale(1.02);
+    transition: 0.6s;
+  }
+  
+  .routine-display-add-button button {
+    background-color: #0099ff;
+    color: white;
+    border-radius: 10px;
+    border-color: transparent;
+    width: 150px;
+    height: 25px;
+    cursor: pointer;
+  }
+  
+
