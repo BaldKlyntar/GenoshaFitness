@@ -20,7 +20,8 @@ import {
   AddWorkoutPage,
   AddFoodPage, 
   RoutineDisplayPage,
-  RecipeDisplayPage
+  RecipeDisplayPage,
+  FitnessNewsPage
 
 } from './Pages'
 
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
             path:"daily-log",
             element:<DailyLogPage/>,
             loader: profileLoader,
+          },
+          {
+            path: "fitness-news",
+            element: <FitnessNewsPage/>
           },
           {
             path:"admin",

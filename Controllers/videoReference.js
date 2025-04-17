@@ -9,7 +9,9 @@ export const getVideos = async (req, res) => {
                 part: 'snippet',
                 q:find,
                 type: 'video',
+                videoDuration: 'medium',
                 maxResults: 4,
+
                 key: process.env.YOUTUBE_API_KEY
             }
         }) 

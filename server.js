@@ -38,6 +38,7 @@ import authRouter from './Routes/authRouter.js'
 import dailyLogRouter from './Routes/dailyLogRouter.js'
 import virtualInstructorRouter from './Routes/virtualInstructorRouter.js'
 import videoReferenceRouter from './Routes/videoReferenceRouter.js'
+import fitnessNewsRouter from './Routes/fitnessNewsRouter.js'
 
 
 // middleware
@@ -67,6 +68,7 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/dailylog', dailyLogRouter)
 app.use('/api/v1/virtualInstructor', virtualInstructorRouter)
 app.use('/api/v1/videos', videoReferenceRouter)
+app.use('/api/v1/news', fitnessNewsRouter)
 
 // NOT FOUND 
 app.use('*', (req, res) => {

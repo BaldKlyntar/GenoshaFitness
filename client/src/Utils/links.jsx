@@ -8,46 +8,52 @@ import { BiFoodMenu } from "react-icons/bi";
 import { TbMessageChatbot } from "react-icons/tb";
 import { RiAdminLine } from "react-icons/ri";
 import { IoFastFood } from "react-icons/io5";
+import { FaNewspaper } from "react-icons/fa6";
 
 
 
 const links = [
     {
-        text:'User Stats', 
+        text:'Estadisticas', 
         path: '.', 
         icon:<ImStatsDots/>,
     },
     {
-        text:'Daily Log', 
+        text:'Registro diario', 
         path: 'daily-log', 
         icon:<LuPencilLine/>
     },
     {
-        text:'Routine List', 
+        text:'Rutinas', 
         path: 'routine-list', 
         icon:<FaList/>
     },
     {
-        text:'Workout List', 
+        text:'Ejercicios', 
         path: 'workout-list', 
         icon:<LiaDumbbellSolid/>
     },
     {
-        text:'Recipe List', 
+        text:'Recetas', 
         path: 'recipe-list', 
         icon:<BiFoodMenu/>
     },
     {
-        text: 'Food List',
+        text: 'Alimentos',
         path: 'food-list',
         icon: <IoFastFood/>
 
     },
     {
-        text: 'Virtual Instructor',
+        text: 'Instructor Virtual',
         path: 'virtual-instructor',
         icon:<TbMessageChatbot/>
 
+    },
+    {
+        text: 'Noticias',
+        path: 'fitness-news',
+        icon: <FaNewspaper/>
     },
     {
         text: 'Admin',
