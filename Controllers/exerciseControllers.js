@@ -2,7 +2,17 @@ import Exercise from '../Models/exerciseModel.js'
 import { StatusCodes } from 'http-status-codes'
 
 export const getAllExercises = async (req, res) =>{
-    const exercises = await Exercise.find({})
+    const { name, muscleGroup } = req.query;
+    let filtro = {};
+
+    if (name) {
+        filtro.name = { $regex: name, $options: "i"};
+    }
+
+    if(muscleGroup){
+        filtro.muscleGroup = { $regex: muscleGroup, $options: "i"};
+    }
+    const exercises = await Exercise.find(filtro);
     res.status(StatusCodes.OK).json({exercises})
 }
 
