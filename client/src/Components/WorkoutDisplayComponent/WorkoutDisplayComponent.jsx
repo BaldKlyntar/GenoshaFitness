@@ -98,9 +98,9 @@ const WorkoutDisplayComponent = () => {
             </div>
         </div>
         <div className="workout-rank">
-          <h3>Calificacion</h3>
+          <h3>Dificultad</h3>
           <div className="rank-mini">
-            <p>9.5</p>
+            <p>{exercise.difficulty}</p>
           </div>
         </div>
       </div>

@@ -2,7 +2,15 @@ import Food from '../Models/foodModel.js'
 import {StatusCodes } from 'http-status-codes'
 
 export const getAllFood = async (req, res) => {
-    const foods = await Food.find({})
+
+    const { name } = req.query;
+    let filter = {};
+
+    if (name) {
+        filter.name = { $regex: name, $options: "i"};
+    }
+
+    const foods = await Food.find(filter)
     res.status(StatusCodes.OK).json({foods})
 }
 

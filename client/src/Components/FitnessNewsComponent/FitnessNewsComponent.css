@@ -43,7 +43,7 @@
 .news-container-image img{
     width: 415px;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .news-container-specs{

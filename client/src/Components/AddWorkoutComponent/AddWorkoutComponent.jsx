@@ -4,6 +4,7 @@ import { PiBarbellLight } from "react-icons/pi";
 import customFetch from '../../Utils/customFetch';
 import { toast } from 'react-toastify'
 import { Form, redirect, useNavigation } from 'react-router-dom'
+import { WORKOUT_DIFFICULTY } from '../../../../Utils/Constants';
 
 export const action = async ({ request }) => {
     const formData = await request.formData();
@@ -43,6 +44,18 @@ const AddWorkoutComponent = () => {
           <div className="admin-add-workout-description">
             <p>Description</p>
             <textarea type="text" name='description' />
+          </div>
+          <div className="admin-add-workout-difficulty">
+            <p>Dificultad</p>
+            <select   name="difficulty" >
+                {Object.values(WORKOUT_DIFFICULTY).map((itemValue) => {
+                return(
+                    <option key={itemValue} value= {itemValue}>
+                    {itemValue}
+                    </option>
+                );
+                })}
+            </select>
           </div>
       </div>
       <div className="admin-add-workout-image">

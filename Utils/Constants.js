@@ -17,3 +17,9 @@ export const PAL_CATEGORY = {
     EX_ACTIVE: 'Extremely active'
 
 }
+
+export const WORKOUT_DIFFICULTY = {
+    FACIL: 'Facil',
+    INTERMEDIO: 'Intermedio',
+    DIFICIL: 'Dificil'
+}
