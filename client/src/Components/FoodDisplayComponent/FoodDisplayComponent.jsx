@@ -86,7 +86,9 @@ const FoodDisplayComponent = () => {
               <img src={imageUrl} alt="" />
           </div>
           <div className="food-display-left-bottom">
-
+                <h1>{food.name}</h1>
+                <h3>Tamaño de la porcion: {food.portionSize} g</h3>
+                <button onClick={toggleList}>Agregar a una receta</button>
           </div>
         </div>
         <div className="food-display-right">
@@ -173,8 +175,27 @@ const FoodDisplayComponent = () => {
                 <h4>{food.dietaryFiber}g</h4>
               </div>
           </div>
+          <hr />
         </div>
-
+        <div className={showList?
+      "recipes-list-display show-list":"recipes-list-display"}>
+          {recipe.recipes.map((recipes, index)=>{
+            return <><div key={index} className="recipe-list-display-format">
+              <div className="recipe-list-display-format-text">
+                <h1>{recipes.name}</h1>
+                <p>{recipes.Id}</p>
+                <PiBarbellLight size={50} color='0099ff'/>
+              </div>
+              <div className="recipe-display-add-button">
+                <button onClick={() => addToRecipe(recipes._id)}>ADD</button>
+              </div>
+            </div>
+            </>
+          })}
+          <div className="recipe-display-cancel-button">
+            <button onClick={toggleList}>CANCEL</button>
+          </div>
+      </div>
     </div>
   )
 }

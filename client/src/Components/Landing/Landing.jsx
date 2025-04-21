@@ -13,16 +13,17 @@ const Landing = () => {
         </div>
         <div className="middle-logo">
             <div className="hero-container">
-                <h1>Unlock your fitness potential with Genosha</h1>
+                <h1>Desbloquea tu potencial con Genosha</h1>
                 <p>
-                    Genosha fitness is the ultimate fitness tracker that helps you
-                    reach your goals and live a healthier life.With features like
-                    calorie tracking and workout plans you'll have the tools you
-                    need to take your fitness to the next level.
+                    Genosha Fitness es la mejor aplicacion fitness que te ayudara
+                    a alcanzar tus metas y vivir una vida mas saludable. Con funciones
+                    como seguimiento de calorias y planes de ejercicio tendras las
+                    herramientas que necesitas para llevar tus rutinas de ejercicio al
+                    siguiente nivel.
                 </p>
                 <div className="btn-options">
-                    <Link to='/register'><button>Register</button></Link>
-                    <Link to='/login'><button>Login</button></Link>
+                    <Link to='/register'><button>Registrarse</button></Link>
+                    <Link to='/login'><button>Iniciar Sesion</button></Link>
                 </div>
             </div>
             <div className="hero-image">

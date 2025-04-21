@@ -33,15 +33,15 @@ const RegisterComponent = () => {
         <Form method= 'post' className='form-container'>
             <div className="form-header">
                 <PiBarbellLight size={75} color='#0099ff'/>
-                <h1>Register</h1>
+                <h1>Registrate</h1>
             </div>
             <div className="signup-fields">
                     <div className="signup-containers">
-                        <p>Name</p>
+                        <p>Nombre</p>
                         <input name='name' type="text" required />
                     </div>
                     <div className="signup-containers">
-                        <p>Last name</p>
+                        <p>Apellido</p>
                         <input name='lastName' type="text" required />
                     </div>
             </div>
@@ -51,17 +51,17 @@ const RegisterComponent = () => {
                     <input name='email' type="email"  required />
                 </div>
                 <div className="signup-containers">
-                    <p>Password</p>
+                    <p>Contraseña</p>
                     <input name='password' type="password"  required />
                 </div>
             </div>
             <div className="signup-fields">
                 <div className="signup-containers">
-                    <p>Birth Date</p>
+                    <p>Fecha de nacimiento</p>
                     <input name='birthDate' type="date" placeholder= 'Birth Date' required />
                 </div>
                 <div className="signup-containers">
-                    <p>Gender</p>
+                    <p>Genero</p>
                     <select   name="gender" >
                         {Object.values(GENDER_CATEGORY).map((itemValue) => {
                         return(
@@ -75,17 +75,17 @@ const RegisterComponent = () => {
             </div>
             <div className="signup-fields">
                 <div className="signup-containers">
-                    <p>Weight</p>
-                    <input name='weight' type="number" placeholder='Kilograms'  required />
+                    <p>Peso</p>
+                    <input name='weight' type="number" placeholder='Kilogramos'  required />
                 </div>
                 <div className="signup-containers">
-                    <p>Height</p>
-                    <input name='height' type="number" placeholder='Centimeters'  required />
+                    <p>Altura</p>
+                    <input name='height' type="number" placeholder='Centimetros'  required />
                 </div>
             </div>
             <div className="signup-large-field">
                 <div className="signup-containers">
-                    <p>Goal</p>
+                    <p>Objetivo</p>
                     <select   name="goal" >
                         {Object.values(GOAL_CATEGORY).map((itemValue) => {
                         return(
@@ -99,7 +99,7 @@ const RegisterComponent = () => {
             </div>
             <div className="signup-large-field">
                 <div className="signup-containers">
-                    <p>Physical activity level</p>
+                    <p>Nivel de actividad fisica</p>
                     <select   name="pal" >
                         {Object.values(PAL_CATEGORY).map((itemValue) => {
                         return(
@@ -112,9 +112,9 @@ const RegisterComponent = () => {
                 </div>
             </div>
             <button type='submit' disabled= {isSubmitting}>
-                    {isSubmitting ? 'Signing up...' : 'Sign up'}
+                    {isSubmitting ? 'Registrando...' : 'Registrarse'}
             </button>
-            <p className="signup-login">Already have an account? <Link to='/login'>Login here</Link></p>
+            <p className="signup-login">Ya tienes una cuenta? <Link to='/login'>Inicia sesion aqui</Link></p>
         </Form>
   )
 }
