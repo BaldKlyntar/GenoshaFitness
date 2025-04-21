@@ -5,6 +5,15 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { CircleLoader } from 'react-spinners'
 import { PiBarbellLight } from "react-icons/pi";
 import { toast } from 'react-toastify';
+import { SlEnergy } from "react-icons/sl";
+import { LiaDumbbellSolid } from "react-icons/lia";
+import { FiDroplet } from "react-icons/fi";
+import { LuDumbbell, LuWheat } from "react-icons/lu";
+import { LuDroplets } from "react-icons/lu";
+import { TbSalt } from "react-icons/tb";
+import { TbCandy } from "react-icons/tb";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { CiWheat } from "react-icons/ci";
 
 export const loader = async () => {
   try {
@@ -72,58 +81,100 @@ const FoodDisplayComponent = () => {
 
   return (
     <div className="food-display-container">
-        <div className="food-display-top">
-            <div className="food-display-top-left">
-                <img src={imageUrl} alt="" />
-            </div>
-            <div className="food-display-top-right">
-                <h1>{food.name}</h1>
-                <h3>Serving Size {food.portionSize} g</h3>
-                <button onClick={toggleList}>Add to Recipe</button>
-            </div>
-        </div>
-        <hr  className='calorie-division'/>
-        <div className="food-display-bottom">
-            <div className="food-display-values-container">
-                <h1>Calories</h1>
-                <h1>{food.calories}</h1>
-            </div>
-            <hr  className='macros-division'/>
-            <div className="food-display-values-container">
-                <h3>Protein</h3>
-                <h3>{food.protein} g</h3>
-            </div>
-            <hr />
-            <div className="food-display-values-container">
-                <h3>Total Fat</h3>
-                <h3>{food.fats} g</h3>
-            </div>
-            <hr />
-            <div className="food-display-values-container">
-                <h3>Total Carbohydrate</h3>
-                <h3>{food.carbs} g</h3>
-            </div>
-            <hr  className='calorie-division'/>
-        </div>
-        <div className={showList?
-      "recipes-list-display show-list":"recipes-list-display"}>
-          {recipe.recipes.map((recipes, index)=>{
-            return <><div key={index} className="recipe-list-display-format">
-              <div className="recipe-list-display-format-text">
-                <h1>{recipes.name}</h1>
-                <p>{recipes.Id}</p>
-                <PiBarbellLight size={50} color='0099ff'/>
-              </div>
-              <div className="recipe-display-add-button">
-                <button onClick={() => addToRecipe(recipes._id)}>ADD</button>
-              </div>
-            </div>
-            </>
-          })}
-          <div className="recipe-display-cancel-button">
-            <button onClick={toggleList}>CANCEL</button>
+        <div className="food-display-left">
+          <div className="food-display-left-top">
+              <img src={imageUrl} alt="" />
           </div>
-      </div>
+          <div className="food-display-left-bottom">
+
+          </div>
+        </div>
+        <div className="food-display-right">
+          <div className="food-display-top-right">
+            <div className="nutri-facts-header">
+              <div className="barbell-icon"><PiBarbellLight size={50} color='white'/></div>
+            </div>
+            <div className="calories">
+                <SlEnergy/>
+                <h2>{food.calories}</h2>
+                <p>Calorias</p>
+            </div>
+            <div className="macros">
+                <div className="proteins">
+                  <LuDumbbell/>
+                  <h2>{food.protein}g</h2>
+                  <p>Proteinas</p>
+                </div>
+                <div className="carbs">
+                    <LuWheat/>
+                    <h2>{food.carbs}g</h2>
+                    <p>Carbohidratos</p>
+                </div>
+                <div className="fats">
+                    <FiDroplet/>
+                    <h2>{food.fats}g</h2>
+                    <p>Grasas</p>
+                </div>
+            </div>
+          </div>
+          <div className="food-display-bottom-right">
+            <div className="nutri-facts-container">
+              <div className="nutri-facts-icon">
+                <div className="nutri-icon-satfat">
+                  <LuDroplets size={18}/>
+                </div>
+                <p>Grasas Saturadas</p>
+              </div>
+              <h4>{food.saturatedFat}g</h4>
+            </div>
+            <div className="nutri-facts-container">
+            <div className="nutri-facts-icon">
+                <div className="nutri-icon-tranfat">
+                  <LuDroplets size={18}/>
+                </div>
+                <p>Grasas Trans</p>
+              </div>
+             <h4>{food.transFat}g</h4>
+              </div>
+              <div className="nutri-facts-container">
+                <div className="nutri-facts-icon">
+                  <div className="nutri-icon-sodium">
+                    <TbSalt size={18}/>
+                  </div>
+                  <p>Sodio</p>
+                </div>
+                <h4>{food.sodium}g</h4>
+              </div>
+              <div className="nutri-facts-container">
+              <div className="nutri-facts-icon">
+                  <div className="nutri-icon-sugar">
+                    <TbCandy size={18}/>
+                  </div>
+                  <p>Azucares</p>
+                </div>
+                <h4>{food.sugars}g</h4>
+              </div>
+              <div className="nutri-facts-container">
+              <div className="nutri-facts-icon">
+                  <div className="nutri-icon-chol">
+                    <RiErrorWarningLine size={18}/>
+                  </div>
+                  <p>Colesterol</p>
+                </div>
+                <h4>{food.cholesterol}g</h4>
+              </div>
+              <div className="nutri-facts-container">
+              <div className="nutri-facts-icon">
+                  <div className="nutri-icon-fib">
+                    <CiWheat size={18}/>
+                  </div>
+                  <p>Fibra Dietetica</p>
+                </div>
+                <h4>{food.dietaryFiber}g</h4>
+              </div>
+          </div>
+        </div>
+
     </div>
   )
 }

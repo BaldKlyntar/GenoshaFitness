@@ -33,45 +33,75 @@ const AddFoodComponent = () => {
         <div className="admin-add-food-data">
             <div className="admin-add-food-data-container">
                 <div className="admin-add-food-itemfield">
-                    <p>Name</p>
+                    <p>Nombre</p>
                     <input type="text" name='name' />
                 </div>
                 <div className="admin-add-food-itemfield">
-                    <p>Portion Size (g)</p>
+                    <p>Tamaño de la porcion (g)</p>
                     <input type="number" name='portionSize' />
                 </div>
             </div>
             <div className="admin-add-food-data-container">
                 <div className="admin-add-food-itemfield">
-                    <p>Calories</p>
+                    <p>Calorias</p>
                     <input type="number" name='calories' />
                 </div>
                 <div className="admin-add-food-itemfield">
-                    <p>Proteins</p>
+                    <p>Proteinas</p>
                     <input type="number" name='protein' />
                 </div>
             </div>
             <div className="admin-add-food-data-container">
                 <div className="admin-add-food-itemfield">
-                    <p>Fats</p>
+                    <p>Grasa</p>
                     <input type="number" name='fats' />
                 </div>
                 <div className="admin-add-food-itemfield">
-                    <p>Carbs</p>
-                    <input type="number" name='carbs' />
+                    <p>Carbohidratos</p>
+                    <input type="number" name='carbs' step= ".01" />
+                </div>
+            </div>
+            <div className="admin-add-food-data-container">
+                <div className="admin-add-food-itemfield">
+                    <p>Grasas saturadas</p>
+                    <input type="number" name='saturatedFat' step=".01" />
+                </div>
+                <div className="admin-add-food-itemfield">
+                    <p>Grasas trans</p>
+                    <input type="number" name='transFat' step=".01" />
+                </div>
+            </div>
+            <div className="admin-add-food-data-container">
+                <div className="admin-add-food-itemfield">
+                    <p>Azucares</p>
+                    <input type="number" name='sugars' step=".01" />
+                </div>
+                <div className="admin-add-food-itemfield">
+                    <p>Sodio</p>
+                    <input type="number" name='sodium' step=".01" />
+                </div>
+            </div>
+            <div className="admin-add-food-data-container">
+                <div className="admin-add-food-itemfield">
+                    <p>Colesterol</p>
+                    <input type="number" name='cholesterol' step=".01" />
+                </div>
+                <div className="admin-add-food-itemfield">
+                    <p>Fibra dietetica</p>
+                    <input type="number" name='dietaryFiber' step=".01" />
                 </div>
             </div>
         </div>
         <div className="admin-add-food-image">
             <label htmlFor="image">
                 <div className="area">
-                <p>Image</p>
+                <p>Imagen</p>
                 <input  type="file" name='image' id='image' accept= 'image/*'/>
                 </div>
             </label>
         </div>
         <div className="admin-add-food-button">
-            <button type= 'submit' disabled = {isSubmitting}>{isSubmitting ? 'Adding Product...' : 'ADD'}</button>
+            <button type= 'submit' disabled = {isSubmitting}>{isSubmitting ? 'Agregando Producto...' : 'AGREGAR'}</button>
         </div>
     </Form>
   )
