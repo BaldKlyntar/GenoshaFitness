@@ -33,15 +33,9 @@
 .btn-container {
   display: flex;
   align-items: center;
-}
+  width: fit-content;
+  cursor: pointer;
 
-.btn-container button {
-  background-color: #0099ff;
-  border-color: grey;
-  border-radius: 10px;
-  width: 65px;
-  height: 40px;
-  color: white;
 }
 
 @media (min-width: 992px) {

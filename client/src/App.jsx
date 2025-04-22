@@ -35,6 +35,7 @@ import { loader as allRoutineLoader } from './Components/WorkoutDisplayComponent
 import { action as addRecipeAction } from './Components/RecipeListComponent/RecipeListComponent'
 import { loader as allRecipeLoader } from './Components/FoodDisplayComponent/FoodDisplayComponent'
 import { loader as checkUserLoader } from './Components/LoginComponent/LoginComponent'
+import UserSettingsPage from './Pages/UserSettingsPage'
 
 
 
@@ -128,6 +129,11 @@ const router = createBrowserRouter([
           {
             path: "fitness-news",
             element: <FitnessNewsPage/>
+          },
+          {
+            path: "user-settings",
+            element:<UserSettingsPage/>,
+            loader: profileLoader
           },
           {
             path:"admin",
