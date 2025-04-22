@@ -9,11 +9,13 @@ const WorkoutListComponent = () => {
 
     const [all_exercises, setAll_Exercise] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    const [ recommended_exercises, setRecommended_Exercises] = useState([])
     const [name, setName ] = useState('');
     const [muscleGroup, setMuscleGroup] = useState('');
+    const [showRecommended, setShowRecommended] = useState(false);
    
     //Todos los ejercicios
+    
 
     const fetchAllWorkout = async () => {
       setIsLoading(true)
@@ -36,6 +38,20 @@ const WorkoutListComponent = () => {
     useEffect(() => {
       fetchAllWorkout();
     }, []);
+
+    const fetchRecommendedExercises = async () => {
+      setIsLoading(true)
+      try{
+        const { data } = await customFetch.get('/exercises/recommended-exercises')
+        setRecommended_Exercises(data.recommendedExercises);
+        console.log(data)
+      }catch(error){
+        console.log(error)
+      }finally {
+        setIsLoading(false); 
+      }
+    }
+    
 
   return (
     <div className="workout-list-background">
@@ -67,12 +83,16 @@ const WorkoutListComponent = () => {
                 />
             </div>
             <div className="workout-list-button">
-                <button type='submit'>Buscar</button>
+                <button onClick={() => {setShowRecommended(false)}} type='submit'>Buscar</button>
+                <button onClick={() => {
+                  fetchRecommendedExercises();
+                  setShowRecommended(true);
+                }}>Busqueda por Recomendacion</button>
             </div>
         </Form>
       </div>
       <div className="workout-list">
-          {all_exercises.map((item, i) => (
+          {(showRecommended ? recommended_exercises : all_exercises).map((item, i) => (
           <Container
               key={i}
               id= {item._id}

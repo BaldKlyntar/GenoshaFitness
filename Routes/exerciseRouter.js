@@ -4,7 +4,8 @@ import {
     addExercise,
     getExercise,
     updateExercise,
-    deleteExercise
+    deleteExercise,
+    getRecommendedExercises
 } from '../Controllers/exerciseControllers.js'
 import { validateExerciseInput } from '../Middleware/validationMiddleware.js'
 import { authorizePermissions, authenticateUser} from '../Middleware/authMiddleware.js'
@@ -14,6 +15,7 @@ import { checkImageUpload } from '../Middleware/multerMiddleware.js'
 const router = Router()
 
 router.get('/allexercises', getAllExercises)
+router.get('/recommended-exercises', getRecommendedExercises)
 router.post('/addexercise', upload.single('image'), checkImageUpload, validateExerciseInput, authenticateUser, authorizePermissions('admin'), addExercise)
 router
     .route('/:id')

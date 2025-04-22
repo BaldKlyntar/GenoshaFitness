@@ -35,6 +35,7 @@ import { loader as allRoutineLoader } from './Components/WorkoutDisplayComponent
 import { action as addRecipeAction } from './Components/RecipeListComponent/RecipeListComponent'
 import { loader as allRecipeLoader } from './Components/FoodDisplayComponent/FoodDisplayComponent'
 import { loader as checkUserLoader } from './Components/LoginComponent/LoginComponent'
+import { action as updateUserAction } from './Components/UserSettingsComponent/UserSettingsComponent'
 import UserSettingsPage from './Pages/UserSettingsPage'
 
 
@@ -133,7 +134,7 @@ const router = createBrowserRouter([
           {
             path: "user-settings",
             element:<UserSettingsPage/>,
-            loader: profileLoader
+            action: updateUserAction
           },
           {
             path:"admin",
