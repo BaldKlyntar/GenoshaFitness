@@ -48,7 +48,7 @@ const HomeStatsComponent = () => {
     // Porcentaje de grasa segun el IMC (menos preciso)
 
     let BFP = 0
-    if(user.gender = 'Male'){
+    if(user.gender = 'Masculino'){
     BFP = (1.20 * IMC) + (0.23 * age) - (10.8 * 1) -5.4
 
     }
@@ -66,18 +66,18 @@ let LBM = user.weight * (1 - (BFP/100))
 
   let Harris_TMB = 0
   let TotalHarris_TMB = 0
-if (user.gender == 'Male') {
+if (user.gender == 'Masculino') {
     Harris_TMB = Math.round((88.362 + (13.397 * userWeight) + (4.799 * user.height) - (5.677 * age)))
-    if (user.pal === 'Extremely inactive'){
+    if (user.pal === 'Extremadamente inactivo'){
         TotalHarris_TMB = Harris_TMB * 1.2
     }
-    else if (user.pal === 'Sedentary'){
+    else if (user.pal === 'Sedentario'){
         TotalHarris_TMB = Harris_TMB * 1.375
     }
-    else if( user.pal === 'Moderately active'){
+    else if( user.pal === 'Moderadamente activo'){
         TotalHarris_TMB = Harris_TMB * 1.55
     }
-    else if (user.pal === 'Vigorously active'){
+    else if (user.pal === 'Vigorosamente activo'){
         TotalHarris_TMB = Harris_TMB * 1.725
     }
     else{
@@ -87,17 +87,17 @@ if (user.gender == 'Male') {
     
 }else{
     Harris_TMB = Math.round((447.593 + (9.247 * userWeight) + (3.098 * userHeight) - (4.330 * age)))
-    if (user.pal === 'Extremely inactive'){
+    if (user.pal === 'Extremadamente inactivo'){
         TotalHarris_TMB = Harris_TMB * 1.2
     }
-    else if (user.pal === 'Sedentary'){
+    else if (user.pal === 'Sedentario'){
         TotalHarris_TMB = Harris_TMB * 1.375
     }
-    else if( user.pal === 'Moderately active'){
+    else if( user.pal === 'Moderadamente activo'){
         TotalHarris_TMB = Harris_TMB * 1.55
         console.log('Calorias diarias = ', TotalHarris_TMB)
     }
-    else if (user.pal === 'Vigorously active'){
+    else if (user.pal === 'Vigorosamente activo'){
         TotalHarris_TMB = Harris_TMB * 1.725
     }
     else{
@@ -110,14 +110,14 @@ let harrisProtein = 0
 let harrisFat = 0
 let harrisCarbs = 0
 
-if(user.goal === 'Lose weight'){
+if(user.goal === 'Perder peso'){
     userTotalCalories = TotalHarris_TMB - 500
     harrisProtein = 2.2 * user.weight
     harrisFat = (0.30 * userTotalCalories) / 9
     harrisCarbs = (userTotalCalories - ((harrisProtein * 4) + (0.30 * userTotalCalories))) / 4
 
 }
-else if (user.goal === 'Gain muscle'){
+else if (user.goal === 'Ganar musculo'){
     userTotalCalories = TotalHarris_TMB + 500
     harrisProtein = 1.8 * user.weight
     harrisFat = (0.25 * userTotalCalories) / 9
@@ -136,7 +136,7 @@ else {
 
 let Mifflin_TMB = 0;
 
-if(user.gender = 'Male'){
+if(user.gender = 'Masculino'){
     Mifflin_TMB = (10 * user.weight) + (6.25 * user.height) - (5*age) + 5
 }
 else{
@@ -149,14 +149,14 @@ let mifflinProtein = 0
 let mifflinFat = 0
 let mifflinCarbs = 0
 
-if(user.goal === 'Lose weight'){
+if(user.goal === 'Perder peso'){
     CaloriesMifflin = Mifflin_TMB - 500
     mifflinProtein = 2.2 * user.weight
     mifflinFat = (0.30 * CaloriesMifflin) / 9
     mifflinCarbs = (CaloriesMifflin - ((mifflinProtein * 4) + (0.30 * CaloriesMifflin))) / 4
 
 }
-else if (user.goal === 'Gain muscle'){
+else if (user.goal === 'Ganar musculo'){
     CaloriesMifflin = Mifflin_TMB + 500
     mifflinProtein = 1.8 * user.weight
     mifflinFat = (0.25 * CaloriesMifflin) / 9
@@ -176,16 +176,16 @@ else {
 let Katch_TMB = 370 + (21.6 * LBM)
 let TotalKatch_TMB= 0
 
-if (user.pal === 'Extremely inactive'){
+if (user.pal === 'Extremadamente inactivo'){
     TotalKatch_TMB = Katch_TMB * 1.2
 }
-else if (user.pal === 'Sedentary'){
+else if (user.pal === 'Sedentario'){
     TotalKatch_TMB = Katch_TMB * 1.375
 }
-else if( user.pal === 'Moderately active'){
+else if( user.pal === 'Moderadamente activo'){
     TotalKatch_TMB = Katch_TMB * 1.55
 }
-else if (user.pal === 'Vigorously active'){
+else if (user.pal === 'Vigorosamente activo'){
     TotalKatch_TMB = Katch_TMB * 1.725
 }
 else{
@@ -198,14 +198,14 @@ let katchProtein = 0
 let katchFat = 0
 let katchCarbs = 0
 
-if(user.goal === 'Lose weight'){
+if(user.goal === 'Perder peso'){
     CaloriesKatch = TotalKatch_TMB - 500
     katchProtein = 2.2 * user.weight
     katchFat = (0.30 * CaloriesKatch) / 9
     katchCarbs = (CaloriesKatch - ((katchProtein * 4) + (0.30 * CaloriesKatch))) / 4
 
 }
-else if (user.goal === 'Gain muscle'){
+else if (user.goal === 'Ganar musculo'){
     CaloriesKatch = TotalKatch_TMB + 500
     katchProtein = 1.8 * user.weight
     katchFat = (0.25 * CaloriesKatch) / 9
@@ -222,16 +222,16 @@ else {
 
 const data = [
     {
-        name: 'Proteins',
+        name: 'Proteinas',
         uv: harrisProtein
 
     },
     {
-        name: 'Fats',
+        name: 'Grasas',
         uv: harrisFat
     },
     {
-        name: 'Carbs',
+        name: 'Carbohidratos',
         uv: harrisCarbs
     }
 ]
@@ -240,9 +240,9 @@ const data = [
 
 const mifflinData = [
 
-    { name: 'Proteins', value: mifflinProtein},
-    { name: 'Fats', value: mifflinFat},
-    { name: 'Carbs', value: mifflinCarbs}
+    { name: 'Proteinas', value: mifflinProtein},
+    { name: 'Grasas', value: mifflinFat},
+    { name: 'Carbohidratos', value: mifflinCarbs}
 
 ]
 
@@ -260,11 +260,11 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 const katchData = [
     {
-        subject: 'Proteins',
+        subject: 'Proteinas',
         A: katchProtein
     },
     {
-        subject: 'Fats',
+        subject: 'Grasas',
         A: katchFat
     },
     {
@@ -283,60 +283,64 @@ const katchData = [
                 </div>
                 <div className="data-container">
                     <LiaBirthdayCakeSolid size={20}/>
-                    <p>Age:</p><p>{age}</p>
+                    <p>Edad:</p><p>{age}</p>
                 </div>
                 <div className="data-container">
                     <GiWeightScale size={20}/>
-                    <p>Weight:</p><p>{user.weight} kg</p>
+                    <p>Peso:</p><p>{user.weight} kg</p>
                 </div>
                 <div className="data-container">
                     <CiLineHeight size={20}/>
-                    <p>Height:</p><p>{user.height} cm</p>
+                    <p>Altura:</p><p>{user.height} cm</p>
                 </div>
                 <div className="data-container">
                     <GiBiceps size={20}/>
-                    <p>Estimated Lean Mass:</p><p>{Math.round(LBM)} kg</p>
+                    <p>Masa Magra Estimada:</p><p>{Math.round(LBM)} kg</p>
                 </div>
             </div>
             <div className="bfp-container">
-            <svg>
-                <circle
-                cx="70"
-                cy="70"
-                r="70"
-                stroke="#e0e0e0"
-                strokeWidth="10"
-                fill="none"
-                ></circle>
-                <circle
-                cx="70"
-                cy="70"
-                r="70"
-                stroke="#0099ff"
-                strokeWidth="10"
-                strokeLinecap="round"
-                fill="none"
-                style={{
-                    strokeDasharray: `${2 * Math.PI * 70}`,
-                    strokeDashoffset: `${(1 - BFP / 100) * 2 * Math.PI * 70}`,
-                    transition: 'stroke-dashoffset 0.5s ease-in-out',
-                }}
-                ></circle>
-            </svg>
-                <div className="number">
+                <div className="bfp-circle">
+                    <svg>
+                        <circle
+                        cx="75"
+                        cy="75"
+                        r="65"
+                        stroke="#e0e0e0"
+                        strokeWidth="10"
+                        fill="none"
+                        ></circle>
+                        <circle
+                        cx="75"
+                        cy="75"
+                        r="65"
+                        stroke="#0099ff"
+                        strokeWidth="10"
+                        strokeLinecap="round"
+                        fill="none"
+                        style={{
+                            strokeDasharray: `${2 * Math.PI * 70}`,
+                            strokeDashoffset: `${(1 - BFP / 100) * 2 * Math.PI * 70}`,
+                            transition: 'stroke-dashoffset 0.5s ease-in-out',
+                        }}
+                        ></circle>
+                    </svg>
+                </div>
+                <div className="bfp-number">
                     <h2>{Math.round(BFP)}<span>%</span></h2>
                 </div>
-                <h3>Body Fat Percentage</h3>
+                <div className="bfp-title">
+                    <h3>Porcentaje de Grasa Corporal</h3>
+                </div> 
             </div>
             <div className="bmi-container">
                     <div className="desc-container">
-                        <h3>Body Mass Index (BMI)</h3>
+                        <h4>Indice de Masa Corporal (BMI)</h4>
                         <h1>{Math.round(IMC)}</h1>
                         <IoStatsChartOutline size={65} color='#0099ff' className='person-icon'/>
                     </div>
                     <div className="class-container">
                         <div className="under-container">
-                            <h4>Underweight</h4>
+                            <h4>Bajo Peso</h4>
                             <p>{'< 18.5'}</p>
                         </div>
                         <div className="normal-container">
@@ -344,11 +348,11 @@ const katchData = [
                             <p>18.5 - 24.9</p>
                         </div>
                         <div className="over-container">
-                            <h4>Overweight</h4>
+                            <h4>Sobrepeso</h4>
                             <p>25-29.9</p>
                         </div>
                         <div className="obese-container">
-                            <h4>Obese</h4>
+                            <h4>Obesidad</h4>
                             <p>≥ 30</p>
                         </div>
                  </div>
@@ -361,10 +365,10 @@ const katchData = [
                 </div>
                 <div className="quantities-container">
                     <div className="labels-container">
-                        <p>Calories:</p>
-                        <p>Proteins:</p>
-                        <p>Fats:</p>
-                        <p>Carbs:</p>
+                        <p>Calorias:</p>
+                        <p>Proteinas:</p>
+                        <p>Grasas:</p>
+                        <p>Carbohidratos:</p>
                     </div>
                     <div className="values-container">
                         <p>{Math.round(TotalHarris_TMB)} kcal</p>
@@ -387,10 +391,10 @@ const katchData = [
                 </div>
                 <div className="quantities-container">
                     <div className="labels-container">
-                        <p>Calories:</p>
-                        <p>Proteins:</p>
-                        <p>Fats:</p>
-                        <p>Carbs:</p>
+                        <p>Calorias:</p>
+                        <p>Proteinas:</p>
+                        <p>Grasas:</p>
+                        <p>Carbohidratos:</p>
                     </div>
                     <div className="values-container">
                         <p>{Math.round(CaloriesMifflin)} kcal</p>
@@ -426,10 +430,10 @@ const katchData = [
                 </div>
                 <div className="quantities-container">
                     <div className="labels-container">
-                        <p>Calories:</p>
-                        <p>Proteins:</p>
-                        <p>Fats:</p>
-                        <p>Carbs:</p>
+                        <p>Calorias:</p>
+                        <p>Proteinas:</p>
+                        <p>Grasas:</p>
+                        <p>Carbohidratos:</p>
                     </div>
                     <div className="values-container">
                         <p>{Math.round(CaloriesKatch)} kcal</p>

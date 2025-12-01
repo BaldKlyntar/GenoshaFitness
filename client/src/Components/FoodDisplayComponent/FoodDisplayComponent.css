@@ -55,7 +55,10 @@
   margin-top: 30px;
   margin-left: 80px;
   color: #0070bb;
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   
 }
 
@@ -74,7 +77,10 @@
   padding-bottom: 5px;
   padding-top: 5px;
   color:  rgb(0, 139, 0);
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
 }
 
@@ -84,7 +90,10 @@
   padding-bottom: 5px;
   padding-top: 5px;
   color:  rgb(163, 106, 0);
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   margin-left: 7px;
 }
@@ -95,16 +104,27 @@
   padding-bottom: 5px;
   padding-top: 5px;
   color:  rgb(143, 140, 0);
-  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   margin-left: 7px;
 }
 
-.food-display-left-top img{
-  width: 550px;
-  margin-left: 30px;
-  margin-top: 30px;
+.food-display-left-top{
+  width: 35rem;
+  height: 25rem;
+  overflow: hidden;
   border-radius: 15px;
+}
+
+.food-display-left-top img{
+  width: 100%;
+  height: 100%;
+  margin: 30px;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .food-display-bottom-right{
@@ -288,12 +308,3 @@
   border-color: transparent;
   border-radius: 0px 0px 10px 10px;
 }
-
-
-
-
-
-
-
-
-

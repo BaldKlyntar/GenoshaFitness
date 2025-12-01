@@ -46,24 +46,35 @@
   width: 450px;
 }
 
-.bfp-container circle {
-  fill: none;
-  transform: translate(75px, 5px);
-}
-
 .bfp-container {
-  margin-top: 25px;
+
+  position: relative;
+  width: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.bfp-container h3 {
-  margin-top: 12px;
-  margin-left: 65px;
-}
-
-.number {
+.bfp-number{
   position: absolute;
-  padding-left: 125px;
-  top: 215px;
+  top: 32%;
+}
+
+.bfp-circle{
+  width: 9.5rem;
+  height: 9.5rem;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.bfp-circle circle{
+  padding: 0.5rem;
+}
+
+.bfp-title{
+
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .class-container {

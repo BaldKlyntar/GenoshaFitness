@@ -46,7 +46,7 @@ const RecipeDisplayComponent = () => {
     }
   
     if (!one_recipe) {
-      return <div>Recipe not found</div>;
+      return <div>Receta no encontrada</div>;
     }
 
 
@@ -85,15 +85,15 @@ const RecipeDisplayComponent = () => {
 
     const data = [
       {
-        macro:'Protein',
+        macro:'Proteinas',
         A:one_recipe.totalProtein
       },
       {
-        macro:'Fat',
+        macro:'Grasas',
         A: one_recipe.totalFats
       },
       {
-        macro: 'Carbs',
+        macro: 'Carbohidratos',
         A: one_recipe.totalCarbs
       }
 
@@ -119,21 +119,21 @@ const RecipeDisplayComponent = () => {
                     <div className="ingredient-total-row">
                       <div className="ingredient-macro">
                         <h3>{item.calories}</h3>
-                        <p>Calories</p>
+                        <p>Calorias</p>
                       </div>
                       <div className="ingredient-macro">
                         <h3>{item.protein} g</h3>
-                        <p>Protein</p>
+                        <p>Proteinas</p>
                       </div>
                     </div>
                     <div className="ingredient-total-row">
                       <div className="ingredient-macro">
                           <h3>{item.carbs} g</h3>
-                          <p>Carbs</p>
+                          <p>Carbohidratos</p>
                       </div>
                       <div className="ingredient-macro">
                         <h3>{item.fats} g</h3>
-                        <p>Fat</p>
+                        <p>Grasas</p>
                       </div>
                     </div>
                 </div>
@@ -151,8 +151,8 @@ const RecipeDisplayComponent = () => {
                         <button onClick={() => toggleWindow(item._id)}>SALIR</button></div>
                       </div>
                   <div className="recipecollection-options">
-                      <button onClick={() => toggleWindow(item._id)}>PORTION</button>
-                      <button onClick={() => removeFood(item._id)}>REMOVE</button>
+                      <button onClick={() => toggleWindow(item._id)}>PORCION</button>
+                      <button onClick={() => removeFood(item._id)}>REMOVER</button>
                   </div>
               </div>
         </div>
@@ -176,21 +176,21 @@ const RecipeDisplayComponent = () => {
           <div className="recipe-total-row">
             <div className="recipe-macro">
               <h3>{one_recipe.totalCalories}</h3>
-              <p>Calories</p>
+              <p>Calorias</p>
             </div>
             <div className="recipe-macro">
               <h3>{one_recipe.totalProtein} g</h3>
-              <p>Protein</p>
+              <p>Proteinas</p>
             </div>
           </div>
           <div className="recipe-total-row">
             <div className="recipe-macro">
                 <h3>{one_recipe.totalCarbs} g</h3>
-                <p>Carbs</p>
+                <p>Carbohidratos</p>
             </div>
             <div className="recipe-macro">
               <h3>{one_recipe.totalFats} g</h3>
-              <p>Fat</p>
+              <p>Grasas</p>
             </div>
           </div>
       </div>

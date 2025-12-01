@@ -4,7 +4,7 @@ export const getFitnessNews = async (req, res) => {
     try{
         const newsResponse = await axios.get('https://newsapi.org/v2/everything',{
             params:{
-                q: 'ejercicio',
+                q: 'fitness',
                 language: 'es',
                 pageSize: 9,
                 apiKey: process.env.NEWS_API_KEY

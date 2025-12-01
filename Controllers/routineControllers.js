@@ -72,8 +72,18 @@ export const getRoutine = async(req, res) => {
 }
 
 export const deleteRoutine = async(req, res) => {
-    const removedRoutine = await Routine.findByIdAndDelete(req.params.id)
-    res.status(StatusCodes.OK).json({ msg: 'routine deleted', routine: removedRoutine})
+    const user = await User.findById(req.user.userId)
+    const routine = await Routine.findById(req.params.id)
+    console.log(routine)
+
+    if(user._id.equals(routine.createdBy)){
+        await routine.deleteOne()
+    }
+
+    user.routines.remove(routine._id)
+    await user.save()
+
+    res.status(StatusCodes.OK).json({ msg: 'rutina eliminada'})
 
 }
 

@@ -15,7 +15,7 @@ const AdminPageComponent = () => {
                 <div className="admin-menu-container">
                     <div className="select-container">
                     <TbSquareRoundedPlusFilled size={75} color='#0099ff' className='select-icon'/>
-                    <h1>Add Food</h1>
+                    <h1>Agregar Alimento</h1>
                     </div>
                 </div>
             </Link>
@@ -23,7 +23,7 @@ const AdminPageComponent = () => {
                 <div className="admin-menu-container">
                     <div className="select-container-large">
                         <BsPatchPlusFill size={75} color='#0099ff' className='select-icon-large'/>
-                        <h1>Add Workout</h1>
+                        <h1>Agregar Ejercicio</h1>
                     </div>
                 </div>
             </Link>
@@ -33,7 +33,7 @@ const AdminPageComponent = () => {
             <div className="admin-menu-container">
                 <div className="select-container">
                     <IoFastFood size={75} color='#0099ff' className='select-icon'/>
-                    <h1>Food List</h1>
+                    <h1>Lista de Alimentos</h1>
                 </div>
             </div>
             </Link>
@@ -41,7 +41,7 @@ const AdminPageComponent = () => {
             <div className="admin-menu-container">
                 <div className="select-container-large">
                     <GiMuscleUp size={75} color='#0099ff' className='select-icon-large'/>
-                    <h1>Workout List</h1>
+                    <h1>Lista de Ejercicios</h1>
                 </div>
             </div>
             </Link>

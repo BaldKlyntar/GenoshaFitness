@@ -14,12 +14,12 @@ const RoutineCollections = (props) => {
         <div className="routinecollection-right">
             <div className="routinecollection-data">
                 <h2>{props.name}</h2>
-                <h3>Muscle Group: {props.muscleGroup}</h3>
+                <h3>Grupo Muscular: {props.muscleGroup}</h3>
                 <p>{props.description}</p>
             </div>
             <div className="routinecollection-options">
-                <button>EDIT</button>
-                <button>REMOVE</button>
+                <button>EDITAR</button>
+                <button>REMOVER</button>
             </div>
         </div>
   </div>

@@ -1,9 +1,7 @@
 
-
 .food-list-background{
   margin: auto;
   margin-left: 170px;
-  width: max-content;
 
 }
 
@@ -70,6 +68,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 30px;
+
 }
 
 @media (max-width: 1400px) {

@@ -11,6 +11,29 @@
   border-radius: 10px;
   margin-left: 325px;
   overflow-y: auto;
+  display: fl;
+}
+
+.routine-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.routine-delete-btn button{
+  background-color: #0099ff;
+  border-radius: 10px;
+  border-color: transparent;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+
+}
+
+.routine-delete-btn button:hover{
+  transform: scale(1.02);
+  transition: 0.6s;
 }
 
 .routine-popup {
@@ -76,6 +99,7 @@
 
 .routine-list-format {
   height: 100px;
+  width: 70rem;
   margin-left: 10px;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
   margin-right: 10px;

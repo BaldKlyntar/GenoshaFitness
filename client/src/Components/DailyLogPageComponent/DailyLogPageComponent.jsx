@@ -63,7 +63,7 @@ const DailyLogPageComponent = () => {
         routineId: routineId,
         userId: user._id,
       });
-      toast.success('Routine Added');
+      toast.success('Rutina Agregada');
       toggleListRoutines()
       fetchDailyLog();
     } catch (error) {
@@ -78,7 +78,7 @@ const DailyLogPageComponent = () => {
         recipeId: recipeId,
         userId: user._id,
       });
-      toast.success('Recipe Added');
+      toast.success('Receta Agregada');
       fetchDailyLog();
       toggleListRecipes()
     } catch (error) {
@@ -95,7 +95,7 @@ const DailyLogPageComponent = () => {
         
       });
       console.log(response)
-      toast.success('Recipe Removed');
+      toast.success('Receta Removida');
       fetchDailyLog();
     } catch (error) {
       console.log(error)
@@ -112,7 +112,7 @@ const DailyLogPageComponent = () => {
         
       });
       console.log(response)
-      toast.success('Routine Removed');
+      toast.success('Rutina Removida');
       fetchDailyLog();
     } catch (error) {
       console.log(error)
@@ -141,18 +141,18 @@ const DailyLogPageComponent = () => {
 
     let Harris_TMB = 0
     let TotalHarris_TMB = 0
-  if (user.gender == 'Male') {
+  if (user.gender == 'Masculino') {
       Harris_TMB = Math.round((88.362 + (13.397 * userWeight) + (4.799 * user.height) - (5.677 * age)))
-      if (user.pal === 'Extremely inactive'){
+      if (user.pal === 'Extremadamente inactivo'){
           TotalHarris_TMB = Harris_TMB * 1.2
       }
-      else if (user.pal === 'Sedentary'){
+      else if (user.pal === 'Sedentario'){
           TotalHarris_TMB = Harris_TMB * 1.375
       }
-      else if( user.pal === 'Moderately active'){
+      else if( user.pal === 'Moderadamente activo'){
           TotalHarris_TMB = Harris_TMB * 1.55
       }
-      else if (user.pal === 'Vigorously active'){
+      else if (user.pal === 'Vigorosamente activo'){
           TotalHarris_TMB = Harris_TMB * 1.725
       }
       else{
@@ -162,17 +162,17 @@ const DailyLogPageComponent = () => {
       
   }else{
       Harris_TMB = Math.round((447.593 + (9.247 * userWeight) + (3.098 * userHeight) - (4.330 * age)))
-      if (user.pal === 'Extremely inactive'){
+      if (user.pal === 'Extremadamente inactivo'){
           TotalHarris_TMB = Harris_TMB * 1.2
       }
-      else if (user.pal === 'Sedentary'){
+      else if (user.pal === 'Sedentario'){
           TotalHarris_TMB = Harris_TMB * 1.375
       }
-      else if( user.pal === 'Moderately active'){
+      else if( user.pal === 'Moderadamente activo'){
           TotalHarris_TMB = Harris_TMB * 1.55
           console.log('Calorias diarias = ', TotalHarris_TMB)
       }
-      else if (user.pal === 'Vigorously active'){
+      else if (user.pal === 'Vigorosamente activo'){
           TotalHarris_TMB = Harris_TMB * 1.725
       }
       else{
@@ -185,14 +185,14 @@ const DailyLogPageComponent = () => {
   let harrisFat = 0
   let harrisCarbs = 0
   
-  if(user.goal === 'Lose weight'){
+  if(user.goal === 'Perder peso'){
       userTotalCalories = TotalHarris_TMB - 500
       harrisProtein = 2.2 * user.weight
       harrisFat = (0.30 * userTotalCalories) / 9
       harrisCarbs = (userTotalCalories - ((harrisProtein * 4) + (0.30 * userTotalCalories))) / 4
   
   }
-  else if (user.goal === 'Gain muscle'){
+  else if (user.goal === 'Ganar musculo'){
       userTotalCalories = TotalHarris_TMB + 500
       harrisProtein = 1.8 * user.weight
       harrisFat = (0.25 * userTotalCalories) / 9
@@ -218,27 +218,27 @@ const DailyLogPageComponent = () => {
 
   const data = [
     {
-      name: 'Calories',
-      Goal: Math.round(TotalHarris_TMB, 0),
-      Today: totalCalories,
+      name: 'Calorias',
+      Meta: Math.round(TotalHarris_TMB, 0),
+      Hoy: totalCalories,
 
     },
     {
-      name: 'Protein',
-      Goal: Math.round(harrisProtein, 0),
-      Today: totalProtein,
+      name: 'Proteinas',
+      Meta: Math.round(harrisProtein, 0),
+      Hoy: totalProtein,
 
     },
     {
-      name: 'Carbs',
-      Goal: Math.round(harrisCarbs, 0),
-      Today: totalCarbs,
+      name: 'Carbohidratos',
+      Meta: Math.round(harrisCarbs, 0),
+      Hoy: totalCarbs,
    
     },
     {
-      name: 'Fat',
-      Goal: Math.round(harrisFat, 0),
-      Today: totalFats,
+      name: 'Grasas',
+      Meta: Math.round(harrisFat, 0),
+      Hoy: totalFats,
     },
     
   ];
@@ -250,7 +250,7 @@ const DailyLogPageComponent = () => {
     <div className="dailylog-container">
       <div className="dailylog-data">
         <div className="dailylog-meals">
-          <h3>Today's Meals</h3>
+          <h3>Comidas de Hoy</h3>
           <div className="dailylog-recipelist">
             {
               dailyLogResponse.recipeLog.map((item, index) => (
@@ -259,7 +259,7 @@ const DailyLogPageComponent = () => {
                     <h2>{item.name}</h2>
                     <div className="dailylog-listbuttonlogo">
                       <PiBarbellLight size={50} color="0099ff" />
-                      <button onClick={() => removeRecipe(item._id)}>Remove</button>
+                      <button onClick={() => removeRecipe(item._id)}>Remover</button>
                     </div>
                   </div>
                 </div>
@@ -267,10 +267,10 @@ const DailyLogPageComponent = () => {
 
             }
           </div>
-          <button onClick={toggleListRecipes}>Add Recipe</button>
+          <button onClick={toggleListRecipes}>Agregar Receta</button>
         </div>
         <div className="dailylog-routines">
-          <h3>Today's Routines</h3>
+          <h3>Rutinas de Hoy</h3>
             <div className="dailylog-routinelist">
                 {
                 dailyLogResponse.routineLog.map((item, index) => (
@@ -279,7 +279,7 @@ const DailyLogPageComponent = () => {
                         <h2>{item.name}</h2>
                         <div className="dailylog-listbuttonlogo">
                           <PiBarbellLight size={50} color="0099ff" />
-                          <button onClick={() => removeRoutine(item._id)}>Remove</button>
+                          <button onClick={() => removeRoutine(item._id)}>Remover</button>
                         </div>
                     </div>
                     </div>
@@ -287,11 +287,11 @@ const DailyLogPageComponent = () => {
                 
                 }
             </div>
-          <button onClick={toggleListRoutines}>Add Routine</button>
+          <button onClick={toggleListRoutines}>Agregar Rutina</button>
         </div>
       </div>
       <div className="dailylog-chart">
-        <h3>Daily Macros</h3>
+        <h3>Macros Diarios</h3>
         <div className="dailylog-responsivechart">
           <ResponsiveContainer height={650}>
                 <BarChart
@@ -308,8 +308,8 @@ const DailyLogPageComponent = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="Today" stackId="a" fill="#0099ff" />
-                <Bar dataKey="Goal" stackId="a" fill="#7e7e7e" />
+                <Bar dataKey="Hoy" stackId="a" fill="#0099ff" />
+                <Bar dataKey="Meta" stackId="a" fill="#7e7e7e" />
                 </BarChart>
               </ResponsiveContainer>
         </div>
@@ -324,15 +324,15 @@ const DailyLogPageComponent = () => {
                 <PiBarbellLight size={50} color="0099ff" />
               </div>
               <div className="routine-display-add-button">
-                <button onClick={() => addRoutine(routine._id)}>ADD</button>
+                <button onClick={() => addRoutine(routine._id)}>Agregar</button>
               </div>
             </div>
           ))
         ) : (
-          <p>No routines available.</p>
+          <h3>Sin Rutinas Disponibles</h3>
         )}
         <div className="routine-display-cancel-button">
-          <button onClick={toggleListRoutines}>CANCEL</button>
+          <button onClick={toggleListRoutines}>Cancelar</button>
         </div>
       </div>
       <div className={showRecipes ? 'routines-list-display show-list' : 'routines-list-display'}>
@@ -345,15 +345,15 @@ const DailyLogPageComponent = () => {
                 <PiBarbellLight size={50} color="0099ff" />
               </div>
               <div className="routine-display-add-button">
-                <button onClick={() => addRecipe(recipe._id)}>ADD</button>
+                <button onClick={() => addRecipe(recipe._id)}>Agregar</button>
               </div>
             </div>
           ))
         ) : (
-          <p>No recipes available.</p>
+          <h3>Sin Recetas Disponibles</h3>
         )}
         <div className="routine-display-cancel-button">
-          <button onClick={toggleListRecipes}>CANCEL</button>
+          <button onClick={toggleListRecipes}>Cancelar</button>
         </div>
       </div>
     </div>

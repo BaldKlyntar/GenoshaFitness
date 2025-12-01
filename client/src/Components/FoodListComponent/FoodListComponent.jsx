@@ -13,7 +13,6 @@ const FoodListComponent = () => {
     const [name, setName ] = useState('');
 
    
-    //Todos los ejercicios
 
     const fetchAllFood = async () => {
       setIsLoading(true)

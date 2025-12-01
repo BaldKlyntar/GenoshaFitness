@@ -54,7 +54,7 @@ const WorkoutDisplayComponent = () => {
       }
     
       if (!exercise) {
-        return <div>Workout not found</div>;
+        return <div>Ejercicio no Encontrado</div>;
       }
 
   // Agregar ejercicio a rutina
@@ -65,7 +65,7 @@ const WorkoutDisplayComponent = () => {
         routineId: routineId,
         exerciseId: workoutId
       });
-      toast.success('Workout Added')
+      toast.success('Ejercicio Agregado')
     } catch (error) {
       toast.error(error?.response?.data?.msg)
       return error;
@@ -73,7 +73,7 @@ const WorkoutDisplayComponent = () => {
   }
     
 
-    const imageUrl = `http://localhost:5101/${exercise.image.replace("public\\uploads\\", "")}`; // Solucion temporal
+    const imageUrl = `http://localhost:5101/${exercise.image.replace("public\\uploads\\", "")}`;
 
 
   return (
@@ -122,13 +122,13 @@ const WorkoutDisplayComponent = () => {
                 <PiBarbellLight size={50} color='0099ff'/>
               </div>
               <div className="routine-display-add-button">
-                <button onClick={() => addToRoutine(routines._id)}>ADD</button>
+                <button onClick={() => addToRoutine(routines._id)}>AGREGAR</button>
               </div>
             </div>
             </>
           })}
           <div className="routine-display-cancel-button">
-            <button onClick={toggleList}>CANCEL</button>
+            <button onClick={toggleList}>CANCELAR</button>
           </div>
       </div>
     </div>

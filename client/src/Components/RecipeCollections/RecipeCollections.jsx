@@ -41,28 +41,28 @@ const RecipeCollections = (props) => {
           <div className="ingredient-total-row">
             <div className="ingredient-macro">
               <h3>{props.calories}</h3>
-              <p>Calories</p>
+              <p>Calorias</p>
             </div>
             <div className="ingredient-macro">
               <h3>{props.protein} g</h3>
-              <p>Protein</p>
+              <p>Proteinas</p>
             </div>
           </div>
           <div className="ingredient-total-row">
             <div className="ingredient-macro">
                 <h3>{props.carbs} g</h3>
-                <p>Carbs</p>
+                <p>Carbohidratos</p>
             </div>
             <div className="ingredient-macro">
               <h3>{props.fats} g</h3>
-              <p>Fat</p>
+              <p>Grasas</p>
             </div>
           </div>
       </div>
         </div>
         <div className="recipecollection-options">
-            <button>PORTION</button>
-            <button onClick={() => removeFood(props.id)}>REMOVE</button>
+            <button>Porcion</button>
+            <button onClick={() => removeFood(props.id)}>Remover</button>
         </div>
     </div>
 </div>

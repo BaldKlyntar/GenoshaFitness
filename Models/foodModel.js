@@ -1,7 +1,12 @@
 import mongoose from "mongoose";
+const { Types } = mongoose;
 
 const foodSchema = new mongoose.Schema(
     {
+        id:{
+            type: Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
         name:String,
         calories:Number,
         protein:Number,

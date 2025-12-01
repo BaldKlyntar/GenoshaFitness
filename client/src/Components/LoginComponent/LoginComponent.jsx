@@ -11,7 +11,7 @@ export const action = async ({request}) => {
 
     try {
         await customFetch.post('/auth/login', data)
-        toast.success('Login Succesful')
+        toast.success('Inicio de Sesion exitoso')
         return redirect('/home')
 
         
@@ -29,7 +29,7 @@ export const loader = async() => {
     const response = await customFetch.get('/auth/checkUser')
 
     if(response.data == true){
-      toast.success('Welcome Back!')
+      toast.success('Bienvenido!')
       return redirect('/home')
       
     }
@@ -47,30 +47,30 @@ export const loader = async() => {
 
 const LoginComponent = () => {
   const navigation = useNavigation()
-  const isSubmitting = navigation.state === 'submitting'
+  const isSubmitting = navigation.state === 'Cargando..'
 
   return (
         <Form method = 'post' className="login-container">
             <div className="form-header">
                 <PiBarbellLight size={75} color='#0099ff'/>
-                <h1>Login</h1>
+                <h1>Inicio de Sesion</h1>
             </div>
             <div className="login-fields">
                 <div className="login-containers">
-                    <p>Email</p>
+                    <p>Correo</p>
                    <input name='email' type="email" placeholder='Email' />
                 </div>
             </div>
             <div className="login-fields">
             <div className="login-containers">
-                <p>Password</p>
+                <p>Contraseña</p>
                 <input name='password' type="password" placeholder='Password' />
             </div>
             </div>
             <button type='submit' disabled= {isSubmitting}>
                 {isSubmitting ? 'Logging in...' : 'Log in'}
             </button>
-            <p className="signup-login">Dont have an account yet? <Link to='/register'>Sign up here</Link></p>
+            <p className="signup-login">Aun no tienes una cuenta? <Link to='/register'>Registrate aqui</Link></p>
         </Form>
   )
 }

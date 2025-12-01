@@ -5,9 +5,19 @@ import { PiBarbellLight } from "react-icons/pi";
 import { useDashboardContext } from '../../Pages/DashboardLayout';
 import { IoSettings } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-import UserSettingsPage from '../../Pages/UserSettingsPage';
+import { useNavigate } from 'react-router-dom';
+import customFetch from '../../Utils/customFetch';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const logoutUser = async () => {
+  navigate('/');
+  await customFetch.get('/auth/logout')
+  toast.success('Cerrando Sesion...')
+
+  }
   const {toggleSideBar} = useDashboardContext()
   return (
     <div className="navbar">
@@ -21,6 +31,9 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="btn-container">
+              <div className="btn-logout">
+                <button onClick={logoutUser}>Cerrar Sesion</button>
+              </div>
               <Link to="user-settings"><div><IoSettings size={30} color='#0099ff'/></div></Link>
             </div>
         </div>

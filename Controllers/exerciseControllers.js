@@ -43,22 +43,22 @@ export const getRecommendedExercises = async (req, res) => {
         const allExercises = await Exercise.find();
 
         const rules = {
-            "Gain muscle-Extremely inactive": ["press", "curl", "remo", "extension", "peso muerto", 'crunch'],
-            "Gain muscle-Sedentary": ["press", "curl", "remo", "extension", "peso muerto", 'crunch',],
-            "Gain muscle-Moderately active": ["press", "sentadilla", "dominadas", "hip thrust", "zancada", "fondos", "snatch"],
-            "Gain muscle-Vigorously active": ["press", "sentadilla", "dominadas", "hip thrust", "zancada", "fondos", "snatch",],
-            "Gain muscle-Extremely active": ["levantamiento olimpico", "snatch", "clean and jerk", "pull-up", "press militar", "remo con barra"],
+            "Ganar musculo-Extremadamente inactivo": ["press", "curl", "remo", "extension", "peso muerto", 'crunch'],
+            "Ganar musculo-Sedentario": ["press", "curl", "remo", "extension", "peso muerto", 'crunch',],
+            "Ganar musculo-Moderadamente activo": ["press", "sentadilla", "dominadas", "hip thrust", "zancada", "fondos", "snatch"],
+            "Ganar musculo-Vigorosamente activo": ["press", "sentadilla", "dominadas", "hip thrust", "zancada", "fondos", "snatch",],
+            "Ganar musculo-Extremadamente activo": ["levantamiento olimpico", "snatch", "clean and jerk", "pull-up", "press militar", "remo con barra"],
     
-            "Lose weight-Extremely inactive": ["cardio", "salto", "step", "bicicleta", "plancha", "eliptica", "marcha", "trote"],
-            "Lose weight-Sedentary": ["cardio", "salto", "step", "bicicleta", "plancha", "eliptica", "marcha", "trote"],
-            "Lose weight-Moderately active": ["burpee", "sprint", "Jumping jack", "HIIT", "cuerda", "boxeo"],
-            "Lose weight-Vigorously active": ["burpee", "sprint", "Jumping jack", "HIIT", "cuerda", "boxeo"],
-            "Lose weight-Extremely active": ["crossfit", "cuerda pesada", "escalada", "battle ropes", "Intervalo", "sprint en cuestas"],
+            "Perder peso-Extremadamente inactivo": ["cardio", "salto", "step", "bicicleta", "plancha", "eliptica", "marcha", "trote"],
+            "Perder peso-Sedentario": ["cardio", "salto", "step", "bicicleta", "plancha", "eliptica", "marcha", "trote"],
+            "Perder peso-Moderadamente activo": ["burpee", "sprint", "Jumping jack", "HIIT", "cuerda", "boxeo"],
+            "Perder peso-Vigorosamente activo": ["burpee", "sprint", "Jumping jack", "HIIT", "cuerda", "boxeo"],
+            "Perder peso-Extremadamente activo": ["crossfit", "cuerda pesada", "escalada", "battle ropes", "Intervalo", "sprint en cuestas"],
       
-            "Maintain weight-Extremely inactive": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
-            "Maintain weight-MODERATE_ACTIVE": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
-            "Maintain weight-VERY_ACTIVE": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
-            "Maintain weight-Extremely active":["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"]
+            "Mantener peso-Extremadamente inactivo": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
+            "Mantener peso-Moderadamente activo": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
+            "Mantener peso-Vigorosamente activo": ["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"],
+            "Mantener peso-Extremadamente activo":["flexion", "abdominales", "zancadas", "bicicleta", "puente", "escalador", "estiramiento", "bird dog"]
           };
 
 

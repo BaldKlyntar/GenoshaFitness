@@ -21,8 +21,9 @@ import {
   AddFoodPage, 
   RoutineDisplayPage,
   RecipeDisplayPage,
-  FitnessNewsPage
-
+  FitnessNewsPage,
+  AllFoodPage,
+  AllWorkoutPage,
 } from './Pages'
 
 import { action as registerAction } from './Components/RegisterComponent/RegisterComponent'
@@ -36,6 +37,8 @@ import { action as addRecipeAction } from './Components/RecipeListComponent/Reci
 import { loader as allRecipeLoader } from './Components/FoodDisplayComponent/FoodDisplayComponent'
 import { loader as checkUserLoader } from './Components/LoginComponent/LoginComponent'
 import { action as updateUserAction } from './Components/UserSettingsComponent/UserSettingsComponent'
+import { loader as allFoodLoader } from './Components/AllFoodComponent/AllFoodComponent'
+import { loader as AllWorkoutLoader } from './Components/AllWorkoutComponent/AllWorkoutComponent'
 import UserSettingsPage from './Pages/UserSettingsPage'
 
 
@@ -108,7 +111,7 @@ const router = createBrowserRouter([
           },
           {
             path:"food-list",
-            element:<FoodListPage/>
+            element:<FoodListPage/>,
 
           },
           {
@@ -144,10 +147,14 @@ const router = createBrowserRouter([
                 element: <AdminPage/>
               },
               {
-                path: "all-workout"
+                path: "all-workout",
+                element: <AllWorkoutPage/>,
+                loader: AllWorkoutLoader
               },
               {
-                path:"all-food"
+                path:"all-food",
+                element: <AllFoodPage/>,
+                loader: allFoodLoader
               },
               {
                 path:"add-workout",
@@ -159,12 +166,6 @@ const router = createBrowserRouter([
                 element: <AddFoodPage/>,
                 action: addFoodAction
               },
-              {
-                path:"edit-workout/:workoutId"
-              },
-              {
-                path:"edit-food/:foodId"
-              }
             ]
           }
         ]

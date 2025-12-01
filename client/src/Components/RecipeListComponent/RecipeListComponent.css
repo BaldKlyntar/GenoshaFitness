@@ -13,6 +13,28 @@
   overflow-y: auto;
 }
 
+.recipe-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.recipe-delete-btn button{
+  background-color: #0099ff;
+  border-radius: 10px;
+  border-color: transparent;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+
+}
+
+.recipe-delete-btn button:hover{
+  transform: scale(1.02);
+  transition: 0.6s;
+}
+
 .recipe-add {
   margin: auto;
   width: fit-content;
@@ -97,6 +119,7 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  width: 70rem;
 }
 
 .recipe-list-format:hover {

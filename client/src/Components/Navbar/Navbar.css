@@ -35,7 +35,22 @@
   align-items: center;
   width: fit-content;
   cursor: pointer;
+  gap: 20px;
 
+}
+
+.btn-logout button{
+  border-radius: 5px;
+  border-color: transparent;
+  color: white;
+  background-color: #0099ff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+
+}
+
+.btn-logout button:hover{
+  transform: scale(1.01);
 }
 
 @media (min-width: 992px) {

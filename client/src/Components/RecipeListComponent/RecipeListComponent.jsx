@@ -5,6 +5,7 @@ import { IoIosCreate } from "react-icons/io";
 import { PiBarbellLight } from "react-icons/pi";
 import { toast } from 'react-toastify';
 import customFetch from '../../Utils/customFetch';
+import { LiaTrashAltSolid } from "react-icons/lia";
 
 
 export const action = async ({ request }) => {
@@ -58,12 +59,25 @@ const RecipeListComponent = () => {
     }
   }, [isSubmitting, navigation.state]);
 
+
+    const removeRecipe = async (recipeId) => {
+      try {
+        await customFetch.delete(`/recipes/${recipeId}`)
+        toast.success('Receta Eliminada')
+      } catch(error) {
+          toast.error(error?.response?.data?.msg);
+          return error
+  
+      }
+    }
+  
+
   return (
     <div className="recipe-list">
 
           <div className="recipe-list-container">
             {all_recipes.map((recipes, index)=>{
-              return <><Link to={`/home/recipe/${recipes._id}`} style={{textDecoration: 'none', color: 'black'}}><div key={index} className="recipe-list-format">
+              return <><div className="recipe-link"><Link to={`/home/recipe/${recipes._id}`} style={{textDecoration: 'none', color: 'black'}}><div key={index} className="recipe-list-format">
                 <div className="recipe-list-format-text">
                   <h1>{recipes.name}</h1>
                   <p>{recipes.Id}</p>
@@ -73,6 +87,10 @@ const RecipeListComponent = () => {
                 </div>
               </div>
               </Link>
+                <div className="recipe-delete-btn">
+                  <button onClick={() => {removeRecipe(recipes._id)}}><LiaTrashAltSolid size={50}/></button>
+                </div>
+              </div>
               </>
             })}
           </div>
@@ -87,14 +105,14 @@ const RecipeListComponent = () => {
                         <PiBarbellLight size={50} color='0099ff'/>
                     </div>
                     <div className="popup-field">
-                        <p>Recipe name</p>
+                        <p>Nombre de la Receta</p>
                         <input type="text" name='name' required />
                     </div>
                       <button type='submit'  disabled = {isSubmitting} className="popup-accept" >
-                          {isSubmitting ? 'Creating Routine...' : 'CREATE'}
+                          {isSubmitting ? 'Creando Receta...' : 'CREAR'}
                       </button>
                 </Form>
-                <button onClick={togglePopup} className="popup-accept">CANCEL</button>
+                <button onClick={togglePopup} className="popup-accept">CANCELAR</button>
             </div>
         </div>
     </div>

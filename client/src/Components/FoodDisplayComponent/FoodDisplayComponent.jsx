@@ -58,7 +58,7 @@ const FoodDisplayComponent = () => {
       }
     
       if (!food) {
-        return <div>Food not found</div>;
+        return <div>Alimento no encontrado</div>;
       }
 
 
@@ -68,7 +68,7 @@ const FoodDisplayComponent = () => {
             recipeId: recipeId,
             foodId: foodId
           });
-          toast.success('Ingredient Added')
+          toast.success('Ingredient Agregado')
           toggleList()
         } catch (error) {
           toast.error(error?.response?.data?.msg)
@@ -77,7 +77,7 @@ const FoodDisplayComponent = () => {
       }
     
 
-    const imageUrl = `http://localhost:5101/${food.image.replace("public\\uploads\\", "")}`; // Solucion temporal
+    const imageUrl = `http://localhost:5101/${food.image.replace("public\\uploads\\", "")}`;
 
   return (
     <div className="food-display-container">
@@ -187,13 +187,13 @@ const FoodDisplayComponent = () => {
                 <PiBarbellLight size={50} color='0099ff'/>
               </div>
               <div className="recipe-display-add-button">
-                <button onClick={() => addToRecipe(recipes._id)}>ADD</button>
+                <button onClick={() => addToRecipe(recipes._id)}>Agregar</button>
               </div>
             </div>
             </>
           })}
           <div className="recipe-display-cancel-button">
-            <button onClick={toggleList}>CANCEL</button>
+            <button onClick={toggleList}>Cancelar</button>
           </div>
       </div>
     </div>

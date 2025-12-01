@@ -8,6 +8,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.routinecollection-description{
+  width: 25rem;
+}
+
 .routine-collection {
   background-color: white;
   margin: auto;
@@ -39,7 +43,6 @@
 }
 
 .routinecollection-options {
-  margin-left: 5px;
   margin-top: 20px;
   display: flex;
   gap: 10px;
@@ -54,7 +57,7 @@
   color: white;
   cursor: pointer;
   height: 30px;
-  width: 250px;
+  width: 12rem;
 }
 
 .sets-window-display {

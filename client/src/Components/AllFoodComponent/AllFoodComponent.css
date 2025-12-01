@@ -1,0 +1,77 @@
+.all-food-component{
+    background-color: white;
+    width: fit-content;
+    justify-self: center;
+    margin-left: 15rem;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 1px 10px 1px rgb(224, 224, 224);
+
+}
+
+.listfood-format-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 20px 0px;
+  color: #454545;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.listfood-format {
+  align-items: center;
+  font-weight: 500;
+}
+
+.listfood-food-icon {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.listfood-allfoods button {
+  cursor: pointer;
+  width: 80px;
+  background: white;
+  border-color: #e2e2e2;
+  border-radius: 10px;
+  height: 40px;
+  font-family: "Oswald";
+  border-width: 1px;
+}
+
+.listfood-allfoods-btn {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.listfood-allfoods button:hover {
+  transition-duration: 0.1s;
+  background-color: #e4e3e3;
+}
+
+.listfood-allfoods {
+  overflow-y: auto;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .list-food {
+    box-sizing: border-box;
+    width: 95%;
+    height: 100%;
+    padding: 10px 30px;
+    margin: 20px auto;
+  }
+  .listfood-format-main {
+    padding: 15px 0px;
+    color: #454545;
+    font-size: 12px;
+  }
+
+  .listfood-food-icon {
+    height: 60px;
+  }
+}

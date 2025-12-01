@@ -6,6 +6,7 @@ import { PiBarbellLight } from "react-icons/pi";
 import { toast } from 'react-toastify';
 import customFetch from '../../Utils/customFetch';
 import { FaSlideshare } from "react-icons/fa";
+import { LiaTrashAltSolid } from "react-icons/lia";
 
 export const action = async ({ request }) => {
     const formData = await request.formData();
@@ -82,6 +83,17 @@ const RoutineListComponent = () => {
     }
 };
 
+  const removeRoutine = async (routineId) => {
+    try {
+      await customFetch.post(`/users/removeroutine/${routineId}`)
+      toast.success('Rutina Eliminada')
+    } catch(error) {
+        toast.error(error?.response?.data?.msg);
+        return error
+
+    }
+  }
+
 
 
   return (
@@ -89,7 +101,7 @@ const RoutineListComponent = () => {
 
           <div className="routine-list-container">
             {all_routines.map((routines, index)=>{
-              return <><Link to={`/home/routine/${routines._id}`} style={{textDecoration: 'none', color: 'black'}}><div key={index} className="routine-list-format">
+              return <><div className="routine-link"><Link to={`/home/routine/${routines._id}`} style={{textDecoration: 'none', color: 'black'}}><div key={index} className="routine-list-format">
                 <div className="routine-list-format-text">
                   <h1>{routines.name}</h1>
                   <p>{routines.Id}</p>
@@ -99,9 +111,15 @@ const RoutineListComponent = () => {
                 </div>
               </div>
               </Link>
+                <div className="routine-delete-btn">
+                  <button onClick={() => {removeRoutine(routines._id)}}><LiaTrashAltSolid size={50}/></button>
+                </div>
+              </div>
               </>
             })}
+            
           </div>
+          
         <div className="routine-addshare">
           <div className="routine-add" onClick={togglePopup}>
               <IoIosCreate size={75} color='0099ff'/>
@@ -118,14 +136,14 @@ const RoutineListComponent = () => {
                         <PiBarbellLight size={50} color='0099ff'/>
                     </div>
                     <div className="popup-field">
-                        <p>Routine name</p>
+                        <p>Nombre de la Rutina</p>
                         <input type="text" name='name' required />
                     </div>
                       <button type='submit'  disabled = {isSubmitting} className="popup-accept" >
-                          {isSubmitting ? 'Creating Routine...' : 'CREATE'}
+                          {isSubmitting ? 'Creando Rutina...' : 'CREAR'}
                       </button>
                 </Form>
-                <button onClick={togglePopup} className="popup-accept">CANCEL</button>
+                <button onClick={togglePopup} className="popup-accept">CANCELAR</button>
             </div>
         </div>
         <div className={showShare ?
@@ -136,14 +154,14 @@ const RoutineListComponent = () => {
                         <PiBarbellLight size={50} color='red'/>
                     </div>
                     <div className="share-field">
-                        <p>Routine share</p>
+                        <p>Obtener Rutina</p>
                         <input type="text" name='routineId' required />
                     </div>
                       <button type='submit'  disabled = {isSubmitting} className="share-accept" >
-                          {isSubmitting ? 'Getting Routine...' : 'GET'}
+                          {isSubmitting ? 'Obteniendo Rutina...' : 'OBTENER'}
                       </button>
                 </Form>
-                <button onClick={toggleShare} className="share-accept">CANCEL</button>
+                <button onClick={toggleShare} className="share-accept">CANCELAR</button>
             </div>
         </div>
     </div>

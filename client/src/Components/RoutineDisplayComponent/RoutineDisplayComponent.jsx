@@ -49,7 +49,7 @@ const RoutineDisplayComponent = () => {
       }
     
       if (!one_routine) {
-        return <div>Routine not found</div>;
+        return <div>RUTINA NO ENCONTRADA</div>;
       }
 
       const removeWorkout= async (workoutId) => {
@@ -100,13 +100,16 @@ const RoutineDisplayComponent = () => {
             <div className="routinecollection-right">
                 <div className="routinecollection-data">
                     <h2>{item.name}</h2>
-                    <h3>Muscle Group: {item.muscleGroup}</h3>
-                    <p>{item.description}</p>
+                    <h3>Grupo Muscular: {item.muscleGroup}</h3>
+                    <div className="routinecollection-description">
+                      <p>{item.description}</p>
+                    </div>
+
                     <h3>{item.sets} Sets X {item.reps} Reps</h3>
                 </div>
                 <div className="routinecollection-options">
-                    <button onClick={() => toggleWindow(item._id)}>EDIT</button>
-                    <button onClick={() => removeWorkout(item._id)}>REMOVE</button>
+                    <button onClick={() => toggleWindow(item._id)}>EDITAR</button>
+                    <button onClick={() => removeWorkout(item._id)}>REMOVER</button>
                 </div>
             </div>
             <div className={workoutUpdate === item._id ? 'sets-window-display show-window': 'sets-window-display'}>
